@@ -861,13 +861,13 @@
                         <form onsubmit="sendWish(event)">
                             <div class="form-field">
                                 <label>Nama</label>
-                                <input type="text" required placeholder="Nama Anda">
+                                <input type="text" id="wishName" required placeholder="Nama Anda">
                             </div>
                             <div class="form-field">
                                 <label>Ucapan & Doa</label>
-                                <textarea required placeholder="Tulis ucapan dan doa untuk kedua mempelai..."></textarea>
+                                <textarea id="wishMessage" required placeholder="Tulis ucapan dan doa untuk kedua mempelai..."></textarea>
                             </div>
-                            <button type="submit" class="submit-wish">Kirim Ucapan</button>
+                            <button type="submit" class="submit-wish">💬 Kirim via WhatsApp</button>
                         </form>
                     </div>
                     
@@ -973,10 +973,36 @@
             }
         }
 
+        // =============================================
+        // KONFIGURASI NOMOR WA PEMILIK UNDANGAN
+        // Ganti nomor di bawah ini (format: 628xxx tanpa + atau spasi)
+        // =============================================
+        const NOMOR_WA_PENGANTIN = '6281286511070';
+
         function sendWish(e) {
             e.preventDefault();
-            alert('Terima kasih atas ucapan dan doanya!');
+            const nama = document.getElementById('wishName').value.trim();
+            const ucapan = document.getElementById('wishMessage').value.trim();
+
+            // Tampilkan ucapan di list dulu
+            const wishCard = document.createElement('div');
+            wishCard.className = 'wish-card';
+            wishCard.innerHTML = `
+                <div class="wish-author">💌 ${nama}</div>
+                <div class="wish-message">${ucapan}</div>
+                <div class="wish-date">Baru saja</div>
+            `;
+            document.getElementById('wishesList').prepend(wishCard);
+
+            // Buat pesan WA
+            const pesan = `Assalamu'alaikum! 🌸\n\nSaya *${nama}* ingin menyampaikan ucapan dan doa untuk Michael & Jessica:\n\n_${ucapan}_\n\nBarakallahu lakuma wa baraka 'alaikuma wa jama'a bainakuma fi khair 💕`;
+            const waURL = `https://wa.me/${NOMOR_WA_PENGANTIN}?text=${encodeURIComponent(pesan)}`;
+
+            // Reset form
             e.target.reset();
+
+            // Buka WA
+            window.open(waURL, '_blank');
         }
 
         function openModal(element) {

@@ -912,8 +912,9 @@
 
             <div class="stream-container">
                 <div class="stream-embed">
-                    📹 Live Stream<br>
-                    <small style="font-size: 0.4em; margin-top: 10px;">https://www.youtube.com/@catatansebuahbuku</small>
+                    <!-- GANTI KODE DI BAWAH INI DENGAN IFRAME YOUTUBE ANDA -->
+                    <!-- Contoh: <iframe width="100%" height="100%" src="https://www.youtube.com/embed/VIDEO_ID" frameborder="0" allowfullscreen></iframe> -->
+                    <span>📹 Live Stream Akan Tampil Di Sini</span>
                 </div>
                 <div class="stream-info">
                     <h3 style="font-size: 2em; margin-bottom: 15px;">Saksikan Acara Kami Secara Langsung</h3>
@@ -988,16 +989,16 @@
 
             <div class="rsvp-ultra">
                 <form onsubmit="submitRSVPUltra(event)">
-                    <input type="text" class="rsvp-input" placeholder="Nama Lengkap" required>
-                    <select class="rsvp-input" required>
+                    <input type="text" id="rsvpName" class="rsvp-input" placeholder="Nama Lengkap" required>
+                    <select id="rsvpHadir" class="rsvp-input" required>
                         <option value="">Konfirmasi Kehadiran</option>
                         <option value="hadir">Hadir</option>
                         <option value="tidak">Tidak Hadir</option>
                         <option value="ragu">Masih Ragu</option>
                     </select>
                     <input type="number" class="rsvp-input" placeholder="Jumlah Tamu" min="1" max="5" value="1">
-                    <textarea class="rsvp-input" placeholder="Ucapan & Doa untuk Kami" required></textarea>
-                    <button type="submit" class="rsvp-submit">Kirim Konfirmasi</button>
+                    <textarea id="rsvpPesan" class="rsvp-input" placeholder="Ucapan & Doa untuk Kami" required></textarea>
+                    <button type="submit" class="rsvp-submit">💬 Kirim via WhatsApp</button>
                 </form>
             </div>
         </section>
@@ -1097,10 +1098,25 @@
             window.open('https://maps.google.com', '_blank');
         }
 
+        // =============================================
+        // KONFIGURASI NOMOR WA PEMILIK UNDANGAN
+        // Ganti nomor di bawah ini (format: 628xxx tanpa + atau spasi)
+        // =============================================
+        const NOMOR_WA_ULTRA = '6281286511070';
+
         function submitRSVPUltra(e) {
             e.preventDefault();
-            alert('Terima kasih atas konfirmasi kehadirannya! Data Anda telah tersimpan.');
+            const nama = document.getElementById('rsvpName').value.trim();
+            const hadir = document.getElementById('rsvpHadir').value;
+            const pesan = document.getElementById('rsvpPesan').value.trim();
+
+            const statusHadir = hadir === 'hadir' ? '✅ Hadir' : hadir === 'tidak' ? '❌ Tidak Hadir' : '❓ Masih Ragu';
+
+            const waMsg = `Assalamu'alaikum! 🌸\n\nHalo Christopher & Anastasia,\n\nSaya *${nama}* ingin menyampaikan:\n\n📌 *Status Kehadiran:* ${statusHadir}\n\n💌 *Ucapan & Doa:*\n_${pesan}_\n\nBarakallahu lakuma wa baraka 'alaikuma wa jama'a bainakuma fi khair 💕`;
+            const waURL = `https://wa.me/${NOMOR_WA_ULTRA}?text=${encodeURIComponent(waMsg)}`;
+
             e.target.reset();
+            window.open(waURL, '_blank');
         }
 
         // Smooth scroll
