@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="id">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -43,7 +44,7 @@
         .header h1 {
             font-size: 3.5em;
             margin-bottom: 20px;
-            text-shadow: 2px 2px 10px rgba(0,0,0,0.3);
+            text-shadow: 2px 2px 10px rgba(0, 0, 0, 0.3);
         }
 
         .header p {
@@ -57,7 +58,7 @@
         .header .tagline {
             margin-top: 20px;
             font-size: 1.1em;
-            background: rgba(255,255,255,0.2);
+            background: rgba(255, 255, 255, 0.2);
             backdrop-filter: blur(10px);
             display: inline-block;
             padding: 10px 30px;
@@ -77,7 +78,7 @@
             background: white;
             border-radius: 20px;
             overflow: hidden;
-            box-shadow: 0 20px 60px rgba(0,0,0,0.3);
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
             transition: all 0.4s;
             animation: fadeInUp 1s ease;
             position: relative;
@@ -85,7 +86,7 @@
 
         .template-card:hover {
             transform: translateY(-15px);
-            box-shadow: 0 30px 80px rgba(0,0,0,0.4);
+            box-shadow: 0 30px 80px rgba(0, 0, 0, 0.4);
         }
 
         .template-badge {
@@ -160,8 +161,15 @@
         }
 
         @keyframes float {
-            0%, 100% { transform: translateY(0); }
-            50% { transform: translateY(-20px); }
+
+            0%,
+            100% {
+                transform: translateY(0);
+            }
+
+            50% {
+                transform: translateY(-20px);
+            }
         }
 
         .template-info {
@@ -261,7 +269,7 @@
             background: white;
             border-radius: 20px;
             padding: 60px 40px;
-            box-shadow: 0 20px 60px rgba(0,0,0,0.3);
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
             animation: fadeInUp 1s ease 0.3s both;
         }
 
@@ -321,10 +329,10 @@
         /* FAQ Section */
         .faq-section {
             margin-top: 60px;
-            background: rgba(255,255,255,0.95);
+            background: rgba(255, 255, 255, 0.95);
             border-radius: 20px;
             padding: 60px 40px;
-            box-shadow: 0 20px 60px rgba(0,0,0,0.3);
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
             animation: fadeInUp 1s ease 0.4s both;
         }
 
@@ -359,10 +367,10 @@
             margin-top: 60px;
             text-align: center;
             padding: 80px 20px;
-            background: linear-gradient(135deg, rgba(255,255,255,0.1), rgba(255,255,255,0.05));
+            background: linear-gradient(135deg, rgba(255, 255, 255, 0.1), rgba(255, 255, 255, 0.05));
             backdrop-filter: blur(10px);
             border-radius: 20px;
-            border: 2px solid rgba(255,255,255,0.2);
+            border: 2px solid rgba(255, 255, 255, 0.2);
             animation: fadeInUp 1s ease 0.5s both;
         }
 
@@ -406,7 +414,7 @@
 
         .cta-btn-primary:hover {
             transform: translateY(-5px);
-            box-shadow: 0 15px 40px rgba(255,255,255,0.4);
+            box-shadow: 0 15px 40px rgba(255, 255, 255, 0.4);
         }
 
         .cta-btn-secondary {
@@ -418,6 +426,98 @@
         .cta-btn-secondary:hover {
             background: white;
             color: #667eea;
+        }
+
+        /* Bundle Banner */
+        .bundle-banner {
+            background: linear-gradient(135deg, rgba(255, 255, 255, 0.1), rgba(255, 255, 255, 0.2));
+            backdrop-filter: blur(10px);
+            border: 2px solid rgba(212, 175, 55, 0.5);
+            border-radius: 20px;
+            padding: 40px;
+            text-align: center;
+            margin-top: -10px;
+            margin-bottom: 50px;
+            color: white;
+            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.2);
+            animation: fadeInDown 1s ease 0.2s both;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .bundle-banner::before {
+            content: '🌟 BEST VALUE';
+            position: absolute;
+            top: 25px;
+            right: -45px;
+            background: #ff3b30;
+            color: white;
+            padding: 8px 50px;
+            transform: rotate(45deg);
+            font-weight: bold;
+            font-size: 0.9em;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+            letter-spacing: 1px;
+        }
+
+        .bundle-title {
+            font-size: 2.2em;
+            color: var(--primary);
+            margin-bottom: 15px;
+            text-shadow: 1px 1px 5px rgba(0, 0, 0, 0.5);
+        }
+
+        .bundle-desc {
+            font-size: 1.1em;
+            margin-bottom: 25px;
+            max-width: 800px;
+            margin-left: auto;
+            margin-right: auto;
+            line-height: 1.6;
+            opacity: 0.9;
+        }
+
+        .bundle-price-box {
+            display: inline-block;
+            background: rgba(0, 0, 0, 0.4);
+            padding: 15px 40px;
+            border-radius: 50px;
+            margin-bottom: 30px;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .bundle-price {
+            font-size: 2.8em;
+            font-weight: bold;
+            color: var(--success);
+            text-shadow: 0 0 10px rgba(16, 185, 129, 0.5);
+        }
+
+        .bundle-old-price {
+            font-size: 1.3em;
+            color: #aaa;
+            text-decoration: line-through;
+            margin-left: 15px;
+        }
+
+        .bundle-btn {
+            display: inline-block;
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            color: white;
+            padding: 18px 60px;
+            border-radius: 50px;
+            text-decoration: none;
+            font-size: 1.3em;
+            font-weight: bold;
+            text-transform: uppercase;
+            transition: all 0.3s;
+            box-shadow: 0 10px 25px rgba(212, 175, 55, 0.4);
+            letter-spacing: 1px;
+        }
+
+        .bundle-btn:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 35px rgba(212, 175, 55, 0.6);
         }
 
         /* Footer */
@@ -449,7 +549,7 @@
             top: 0;
             width: 100%;
             height: 100%;
-            background: rgba(0,0,0,0.95);
+            background: rgba(0, 0, 0, 0.95);
             animation: fadeIn 0.3s ease;
         }
 
@@ -472,7 +572,7 @@
             font-weight: bold;
             cursor: pointer;
             z-index: 10001;
-            background: rgba(0,0,0,0.5);
+            background: rgba(0, 0, 0, 0.5);
             width: 50px;
             height: 50px;
             border-radius: 50%;
@@ -483,7 +583,7 @@
         }
 
         .modal-close:hover {
-            background: rgba(0,0,0,0.8);
+            background: rgba(0, 0, 0, 0.8);
             transform: rotate(90deg);
         }
 
@@ -499,6 +599,7 @@
                 opacity: 0;
                 transform: translateY(-50px);
             }
+
             to {
                 opacity: 1;
                 transform: translateY(0);
@@ -510,6 +611,7 @@
                 opacity: 0;
                 transform: translateY(50px);
             }
+
             to {
                 opacity: 1;
                 transform: translateY(0);
@@ -517,8 +619,13 @@
         }
 
         @keyframes fadeIn {
-            from { opacity: 0; }
-            to { opacity: 1; }
+            from {
+                opacity: 0;
+            }
+
+            to {
+                opacity: 1;
+            }
         }
 
         /* Responsive */
@@ -549,6 +656,24 @@
                 align-items: stretch;
             }
 
+            .bundle-title {
+                font-size: 1.6em;
+            }
+
+            .bundle-price {
+                font-size: 2em;
+            }
+
+            .bundle-banner {
+                padding: 30px 20px;
+            }
+
+            .bundle-banner::before {
+                top: 15px;
+                right: -55px;
+                font-size: 0.7em;
+            }
+
             .modal-content {
                 width: 95%;
                 height: 95%;
@@ -561,17 +686,20 @@
             display: inline-block;
             width: 20px;
             height: 20px;
-            border: 3px solid rgba(255,255,255,.3);
+            border: 3px solid rgba(255, 255, 255, .3);
             border-radius: 50%;
             border-top-color: white;
             animation: spin 1s ease-in-out infinite;
         }
 
         @keyframes spin {
-            to { transform: rotate(360deg); }
+            to {
+                transform: rotate(360deg);
+            }
         }
     </style>
 </head>
+
 <body>
     <div class="container">
         <!-- Header -->
@@ -579,6 +707,21 @@
             <h1>🎊 Template Undangan Pernikahan Digital</h1>
             <p>Koleksi Premium - 5 Template Modern & Responsif untuk Hari Spesial Anda</p>
             <div class="tagline">✨ Siap Pakai • Mudah Dikustomisasi • Harga Terjangkau ✨</div>
+        </div>
+
+        <!-- Bundle Banner -->
+        <div class="bundle-banner">
+            <h2 class="bundle-title">🎁 Paket Hemat: Bundle Semua Template</h2>
+            <p class="bundle-desc">Dapatkan akses penuh ke <strong>SELURUH 5 TEMPLATE DARI BASIC HINGGA ULTRA
+                    PREMIUM</strong> di bawah ini dengan harga yang sangat menguntungkan. Cocok bagi Anda yang bingung
+                memilih atau untuk jualan jasa undangan.</p>
+            <div class="bundle-price-box">
+                <span class="bundle-price">Rp 149.000</span>
+                <span class="bundle-old-price">Rp 450.000</span>
+            </div>
+            <br>
+            <a href="#" class="bundle-btn" onclick="buyTemplate('Bundle 5 Templates'); return false;">🛒 Beli Paket
+                Bundle Sekarang</a>
         </div>
 
         <!-- Templates Grid -->
@@ -592,8 +735,8 @@
                 <div class="template-info">
                     <h3 class="template-title">Template Basic</h3>
                     <div class="template-price">
-                        Rp 75.000
-                        <span class="old-price">Rp 100.000</span>
+                        Rp 15.000
+                        <span class="old-price">Rp 30.000</span>
                     </div>
                     <ul class="template-features">
                         <li>Cover page elegant</li>
@@ -623,8 +766,8 @@
                 <div class="template-info">
                     <h3 class="template-title">Template Standard</h3>
                     <div class="template-price">
-                        Rp 200.000
-                        <span class="old-price">Rp 250.000</span>
+                        Rp 29.000
+                        <span class="old-price">Rp 50.000</span>
                     </div>
                     <ul class="template-features">
                         <li>Semua fitur Basic</li>
@@ -654,8 +797,8 @@
                 <div class="template-info">
                     <h3 class="template-title">Template Advanced</h3>
                     <div class="template-price">
-                        Rp 400.000
-                        <span class="old-price">Rp 500.000</span>
+                        Rp 49.000
+                        <span class="old-price">Rp 75.000</span>
                     </div>
                     <ul class="template-features">
                         <li>Semua fitur Standard</li>
@@ -685,8 +828,8 @@
                 <div class="template-info">
                     <h3 class="template-title">Template Premium</h3>
                     <div class="template-price">
-                        Rp 625.000
-                        <span class="old-price">Rp 750.000</span>
+                        Rp 75.000
+                        <span class="old-price">Rp 125.000</span>
                     </div>
                     <ul class="template-features">
                         <li>Semua fitur Advanced</li>
@@ -716,8 +859,8 @@
                 <div class="template-info">
                     <h3 class="template-title">Template Ultra Premium</h3>
                     <div class="template-price">
-                        Rp 1.150.000
-                        <span class="old-price">Rp 1.500.000</span>
+                        Rp 99.000
+                        <span class="old-price">Rp 250.000</span>
                     </div>
                     <ul class="template-features">
                         <li>Semua fitur Premium</li>
@@ -728,7 +871,8 @@
                         <li class="premium-feature">Fitur paling lengkap!</li>
                     </ul>
                     <div class="button-group">
-                        <a href="#" class="btn btn-preview" onclick="openPreview('ultrapremium/index.html'); return false;">
+                        <a href="#" class="btn btn-preview"
+                            onclick="openPreview('ultrapremium/index.html'); return false;">
                             👁️ Preview
                         </a>
                         <a href="#" class="btn btn-buy" onclick="buyTemplate('Ultra Premium'); return false;">
@@ -865,46 +1009,54 @@
         <!-- FAQ Section -->
         <div class="faq-section">
             <h2 class="faq-title">❓ Pertanyaan yang Sering Diajukan</h2>
-            
+
             <div class="faq-item">
                 <div class="faq-question">Apakah template ini mudah dikustomisasi?</div>
                 <div class="faq-answer">
-                    Ya! Semua template dibuat dalam single file HTML yang mudah diedit. Anda hanya perlu mengganti teks (nama, tanggal, lokasi) dengan text editor seperti Notepad, VS Code, atau Sublime Text. Tidak perlu coding skill khusus!
+                    Ya! Semua template dibuat dalam single file HTML yang mudah diedit. Anda hanya perlu mengganti teks
+                    (nama, tanggal, lokasi) dengan text editor seperti Notepad, VS Code, atau Sublime Text. Tidak perlu
+                    coding skill khusus!
                 </div>
             </div>
 
             <div class="faq-item">
                 <div class="faq-question">Apakah bisa menambahkan foto sendiri?</div>
                 <div class="faq-answer">
-                    Tentu! Template sudah memiliki placeholder yang bisa Anda ganti dengan foto Anda sendiri. Kami juga menyediakan panduan lengkap di file README.md tentang cara menambahkan foto.
+                    Tentu! Template sudah memiliki placeholder yang bisa Anda ganti dengan foto Anda sendiri. Kami juga
+                    menyediakan panduan lengkap di file README.md tentang cara menambahkan foto.
                 </div>
             </div>
 
             <div class="faq-item">
                 <div class="faq-question">Bagaimana cara hosting/deploy undangan?</div>
                 <div class="faq-answer">
-                    Anda bisa menggunakan hosting gratis seperti GitHub Pages, Netlify, atau Vercel. Untuk hosting berbayar, bisa menggunakan Niagahoster, Hostinger, atau penyedia hosting lainnya. Panduan lengkap tersedia di dokumentasi.
+                    Anda bisa menggunakan hosting gratis seperti GitHub Pages, Netlify, atau Vercel. Untuk hosting
+                    berbayar, bisa menggunakan Niagahoster, Hostinger, atau penyedia hosting lainnya. Panduan lengkap
+                    tersedia di dokumentasi.
                 </div>
             </div>
 
             <div class="faq-item">
                 <div class="faq-question">Apakah template responsif di semua device?</div>
                 <div class="faq-answer">
-                    Ya! Semua template sudah fully responsive dan akan tampil sempurna di desktop, tablet, dan smartphone. Sudah ditest di berbagai browser (Chrome, Firefox, Safari, Edge).
+                    Ya! Semua template sudah fully responsive dan akan tampil sempurna di desktop, tablet, dan
+                    smartphone. Sudah ditest di berbagai browser (Chrome, Firefox, Safari, Edge).
                 </div>
             </div>
 
             <div class="faq-item">
                 <div class="faq-question">Apakah ada support/bantuan jika ada kendala?</div>
                 <div class="faq-answer">
-                    Setelah pembelian, Anda akan mendapatkan akses ke dokumentasi lengkap dan support via WhatsApp/Email untuk membantu proses customization dan deployment.
+                    Setelah pembelian, Anda akan mendapatkan akses ke dokumentasi lengkap dan support via WhatsApp/Email
+                    untuk membantu proses customization dan deployment.
                 </div>
             </div>
 
             <div class="faq-item">
                 <div class="faq-question">Apakah bisa request custom fitur tambahan?</div>
                 <div class="faq-answer">
-                    Ya! Kami menerima request customization dengan biaya tambahan sesuai kompleksitas. Hubungi kami untuk diskusi kebutuhan Anda.
+                    Ya! Kami menerima request customization dengan biaya tambahan sesuai kompleksitas. Hubungi kami
+                    untuk diskusi kebutuhan Anda.
                 </div>
             </div>
         </div>
@@ -931,7 +1083,8 @@
                 <a href="#" onclick="contactUs(); return false;">Instagram</a>
                 <a href="#" onclick="contactUs(); return false;">Email</a>
             </div>
-            <p style="margin-top: 20px; opacity: 0.7; font-size: 0.9em;">© 2024 Wedding Invitation Templates. All rights reserved.</p>
+            <p style="margin-top: 20px; opacity: 0.7; font-size: 0.9em;">© 2024 Wedding Invitation Templates. All rights
+                reserved.</p>
         </div>
     </div>
 
@@ -979,7 +1132,7 @@
         }
 
         // Close modal when clicking outside
-        window.onclick = function(event) {
+        window.onclick = function (event) {
             const modal = document.getElementById('previewModal');
             if (event.target === modal) {
                 closePreview();
@@ -987,7 +1140,7 @@
         }
 
         // Close modal with ESC key
-        document.addEventListener('keydown', function(event) {
+        document.addEventListener('keydown', function (event) {
             if (event.key === 'Escape') {
                 closePreview();
             }
@@ -1031,4 +1184,5 @@
         });
     </script>
 </body>
+
 </html>
