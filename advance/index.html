@@ -45,6 +45,9 @@
 
         .parallax-2 {
             background-image: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+            height: auto;
+            min-height: 100px;
+            padding: 80px 20px;
         }
 
         .parallax-content {
@@ -383,9 +386,9 @@
         .countdown-elegant {
             display: flex;
             justify-content: center;
-            gap: 40px;
+            gap: 30px;
             flex-wrap: wrap;
-            margin-top: 60px;
+            margin-top: 40px;
         }
 
         .countdown-item {
@@ -394,28 +397,32 @@
         }
 
         .countdown-circle {
-            width: 150px;
-            height: 150px;
+            width: 130px;
+            height: 130px;
             border-radius: 50%;
-            background: linear-gradient(135deg, rgba(255,255,255,0.1), rgba(255,255,255,0.05));
-            border: 3px solid rgba(255,255,255,0.3);
+            background: rgba(255,255,255,0.15);
+            border: 3px solid rgba(255,255,255,0.5);
             display: flex;
             flex-direction: column;
             align-items: center;
             justify-content: center;
             backdrop-filter: blur(10px);
+            box-shadow: 0 8px 32px rgba(0,0,0,0.15);
         }
 
         .countdown-value {
-            font-size: 3em;
+            font-size: 2.5em;
             font-weight: bold;
+            color: #fff;
+            line-height: 1;
         }
 
         .countdown-label {
-            margin-top: 5px;
-            font-size: 1em;
+            margin-top: 6px;
+            font-size: 0.75em;
             text-transform: uppercase;
             letter-spacing: 2px;
+            color: rgba(255,255,255,0.85);
         }
 
         .wishes-container {
@@ -754,11 +761,11 @@
             </div>
         </section>
 
-        <div class="parallax parallax-2">
-            <div class="parallax-content">
-                <div class="section-header">
-                    <div class="section-subtitle" style="color: white;">Hitung Mundur</div>
-                    <div class="section-title" style="color: white;">Menuju Hari Bahagia</div>
+        <div class="parallax-2" style="background-image: linear-gradient(135deg, #f093fb 0%, #f5576c 100%); padding: 80px 20px; text-align: center;">
+            <div style="position: relative; z-index: 1;">
+                <div style="margin-bottom: 40px;">
+                    <div style="font-size: 1em; letter-spacing: 3px; color: rgba(255,255,255,0.85); text-transform: uppercase; margin-bottom: 12px;">Hitung Mundur</div>
+                    <div style="font-size: 3em; font-weight: 300; color: #fff;">Menuju Hari Bahagia</div>
                 </div>
                 <div class="countdown-elegant" id="countdown">
                     <div class="countdown-item">
