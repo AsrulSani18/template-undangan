@@ -1,0 +1,1131 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Undangan Pernikahan - Template Ultra Premium</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Italiana&family=Tangerine:wght@700&family=Poppins:wght@300;400;600&display=swap');
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --gold: #C9A227;
+            --dark-gold: #9C7F1E;
+            --rose-gold: #B76E79;
+            --champagne: #F7E7CE;
+            --dark-navy: #1A1A2E;
+            --light-cream: #FAF9F6;
+        }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            overflow-x: hidden;
+            background: var(--dark-navy);
+        }
+
+        /* Loading Animation */
+        .preloader {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: var(--dark-navy);
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            z-index: 10000;
+            transition: opacity 0.5s, visibility 0.5s;
+        }
+
+        .preloader.hidden {
+            opacity: 0;
+            visibility: hidden;
+        }
+
+        .loader {
+            width: 100px;
+            height: 100px;
+            border: 3px solid rgba(201, 162, 39, 0.3);
+            border-top: 3px solid var(--gold);
+            border-radius: 50%;
+            animation: spin 1s linear infinite;
+        }
+
+        @keyframes spin {
+            to { transform: rotate(360deg); }
+        }
+
+        .loader-text {
+            margin-top: 30px;
+            color: var(--gold);
+            font-size: 1.2em;
+            letter-spacing: 3px;
+        }
+
+        /* 3D Background Effect */
+        .bg-3d {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -1;
+            background: linear-gradient(45deg, var(--dark-navy), #0F0F1E);
+        }
+
+        .particles {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            overflow: hidden;
+        }
+
+        .particle {
+            position: absolute;
+            width: 3px;
+            height: 3px;
+            background: var(--gold);
+            border-radius: 50%;
+            opacity: 0.5;
+            animation: particle-float 10s infinite;
+        }
+
+        @keyframes particle-float {
+            0%, 100% {
+                transform: translate(0, 0);
+                opacity: 0;
+            }
+            10% { opacity: 0.5; }
+            90% { opacity: 0.5; }
+            100% {
+                transform: translate(100px, -800px);
+                opacity: 0;
+            }
+        }
+
+        /* Cover Page */
+        .cover-ultra {
+            height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            color: white;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .animated-rings {
+            position: absolute;
+            width: 600px;
+            height: 600px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .ring {
+            position: absolute;
+            border: 2px solid rgba(201, 162, 39, 0.2);
+            border-radius: 50%;
+            animation: ring-pulse 4s ease-in-out infinite;
+        }
+
+        .ring:nth-child(1) {
+            width: 300px;
+            height: 300px;
+        }
+
+        .ring:nth-child(2) {
+            width: 400px;
+            height: 400px;
+            animation-delay: 1s;
+        }
+
+        .ring:nth-child(3) {
+            width: 500px;
+            height: 500px;
+            animation-delay: 2s;
+        }
+
+        @keyframes ring-pulse {
+            0%, 100% {
+                transform: scale(1);
+                opacity: 0.3;
+            }
+            50% {
+                transform: scale(1.1);
+                opacity: 0.6;
+            }
+        }
+
+        .cover-content-ultra {
+            position: relative;
+            z-index: 10;
+            animation: cover-appear 2s ease;
+        }
+
+        @keyframes cover-appear {
+            from {
+                opacity: 0;
+                transform: scale(0.9);
+            }
+            to {
+                opacity: 1;
+                transform: scale(1);
+            }
+        }
+
+        .ultra-subtitle {
+            font-family: 'Italiana', serif;
+            font-size: 1.5em;
+            letter-spacing: 10px;
+            color: var(--gold);
+            margin-bottom: 30px;
+            animation: glow 2s ease-in-out infinite;
+        }
+
+        @keyframes glow {
+            0%, 100% {
+                text-shadow: 0 0 10px var(--gold);
+            }
+            50% {
+                text-shadow: 0 0 20px var(--gold), 0 0 30px var(--gold);
+            }
+        }
+
+        .ultra-names {
+            font-family: 'Tangerine', cursive;
+            font-size: 7em;
+            font-weight: 700;
+            margin: 20px 0;
+            background: linear-gradient(45deg, var(--gold), var(--rose-gold));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            line-height: 1.2;
+        }
+
+        .ultra-date {
+            font-family: 'Italiana', serif;
+            font-size: 1.8em;
+            letter-spacing: 8px;
+            color: var(--champagne);
+            margin: 30px 0;
+        }
+
+        .diamond-btn {
+            position: relative;
+            margin-top: 50px;
+            padding: 25px 70px;
+            background: linear-gradient(135deg, var(--gold), var(--dark-gold));
+            color: white;
+            border: none;
+            border-radius: 0;
+            font-size: 1.2em;
+            cursor: pointer;
+            letter-spacing: 4px;
+            text-transform: uppercase;
+            clip-path: polygon(10% 0%, 90% 0%, 100% 50%, 90% 100%, 10% 100%, 0% 50%);
+            box-shadow: 0 0 30px rgba(201, 162, 39, 0.5);
+            transition: all 0.4s;
+            animation: btn-float 3s ease-in-out infinite;
+        }
+
+        @keyframes btn-float {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-10px); }
+        }
+
+        .diamond-btn:hover {
+            box-shadow: 0 0 50px rgba(201, 162, 39, 0.8);
+            transform: scale(1.05);
+        }
+
+        .content-ultra {
+            display: none;
+            background: var(--light-cream);
+        }
+
+        /* Section Styles */
+        .section-ultra {
+            padding: 150px 20px;
+            position: relative;
+        }
+
+        .section-dark-ultra {
+            background: linear-gradient(135deg, var(--dark-navy), #16213E);
+            color: white;
+        }
+
+        .ultra-header {
+            text-align: center;
+            margin-bottom: 100px;
+        }
+
+        .ultra-label {
+            font-family: 'Italiana', serif;
+            font-size: 1em;
+            letter-spacing: 6px;
+            color: var(--gold);
+            text-transform: uppercase;
+            margin-bottom: 20px;
+        }
+
+        .ultra-title {
+            font-family: 'Tangerine', cursive;
+            font-size: 5em;
+            font-weight: 700;
+            background: linear-gradient(45deg, var(--gold), var(--rose-gold));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .ultra-divider {
+            width: 200px;
+            height: 3px;
+            background: linear-gradient(90deg, transparent, var(--gold), transparent);
+            margin: 30px auto;
+            position: relative;
+        }
+
+        .ultra-divider::before {
+            content: '◆';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            background: var(--light-cream);
+            color: var(--gold);
+            padding: 0 10px;
+            font-size: 1.2em;
+        }
+
+        /* Couple Section with 3D Cards */
+        .couple-ultra-grid {
+            max-width: 1400px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: 1fr auto 1fr;
+            gap: 100px;
+            align-items: center;
+        }
+
+        .person-ultra-card {
+            perspective: 1000px;
+        }
+
+        .card-inner {
+            position: relative;
+            width: 100%;
+            transition: transform 0.8s;
+            transform-style: preserve-3d;
+        }
+
+        .person-ultra-card:hover .card-inner {
+            transform: rotateY(10deg);
+        }
+
+        .ultra-photo-frame {
+            width: 400px;
+            height: 400px;
+            margin: 0 auto 40px;
+            position: relative;
+            transform-style: preserve-3d;
+        }
+
+        .frame-border {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            border: 5px solid var(--gold);
+            clip-path: polygon(20% 0%, 80% 0%, 100% 20%, 100% 80%, 80% 100%, 20% 100%, 0% 80%, 0% 20%);
+            animation: frame-rotate 10s linear infinite;
+        }
+
+        @keyframes frame-rotate {
+            from { transform: rotate(0deg); }
+            to { transform: rotate(360deg); }
+        }
+
+        .ultra-photo {
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(135deg, var(--gold), var(--rose-gold));
+            clip-path: polygon(20% 0%, 80% 0%, 100% 20%, 100% 80%, 80% 100%, 20% 100%, 0% 80%, 0% 20%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 10em;
+            color: white;
+        }
+
+        .ultra-name {
+            font-family: 'Tangerine', cursive;
+            font-size: 4em;
+            font-weight: 700;
+            color: var(--dark-navy);
+            margin: 30px 0 15px;
+            text-align: center;
+        }
+
+        .ultra-bio {
+            text-align: center;
+            font-size: 1.1em;
+            color: #666;
+            line-height: 2;
+        }
+
+        .ultra-social {
+            text-align: center;
+            margin-top: 25px;
+            font-size: 1.3em;
+            color: var(--gold);
+        }
+
+        .center-diamond {
+            font-size: 6em;
+            color: var(--gold);
+            animation: diamond-spin 5s linear infinite;
+        }
+
+        @keyframes diamond-spin {
+            from { transform: rotateY(0deg); }
+            to { transform: rotateY(360deg); }
+        }
+
+        /* Live Streaming Section */
+        .livestream-section {
+            background: linear-gradient(to bottom, var(--dark-navy), #0F0F1E);
+            padding: 100px 20px;
+        }
+
+        .stream-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            background: rgba(255,255,255,0.05);
+            backdrop-filter: blur(10px);
+            border-radius: 20px;
+            padding: 50px;
+            border: 2px solid rgba(201, 162, 39, 0.3);
+        }
+
+        .stream-embed {
+            width: 100%;
+            aspect-ratio: 16/9;
+            background: #000;
+            border-radius: 15px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--gold);
+            font-size: 2em;
+            margin-bottom: 30px;
+        }
+
+        .stream-info {
+            text-align: center;
+            color: white;
+        }
+
+        .stream-status {
+            display: inline-block;
+            padding: 10px 25px;
+            background: #FF0000;
+            color: white;
+            border-radius: 20px;
+            font-size: 0.9em;
+            margin-top: 20px;
+            animation: live-blink 2s infinite;
+        }
+
+        @keyframes live-blink {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0.6; }
+        }
+
+        /* Timeline with Animations */
+        .timeline-ultra {
+            max-width: 1000px;
+            margin: 0 auto;
+            position: relative;
+        }
+
+        .timeline-ultra::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 4px;
+            height: 100%;
+            background: linear-gradient(to bottom, var(--gold), var(--rose-gold));
+        }
+
+        .timeline-event {
+            margin-bottom: 80px;
+            position: relative;
+            animation: timeline-appear 1s ease;
+        }
+
+        @keyframes timeline-appear {
+            from {
+                opacity: 0;
+                transform: translateY(50px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .timeline-event:nth-child(odd) .event-ultra-content {
+            margin-left: auto;
+        }
+
+        .timeline-event:nth-child(even) .event-ultra-content {
+            margin-right: auto;
+        }
+
+        .event-ultra-content {
+            width: calc(50% - 50px);
+            background: white;
+            padding: 40px;
+            border-radius: 20px;
+            box-shadow: 0 20px 60px rgba(0,0,0,0.1);
+            position: relative;
+            border: 2px solid var(--gold);
+        }
+
+        .timeline-diamond {
+            position: absolute;
+            top: 30px;
+            width: 80px;
+            height: 80px;
+            background: linear-gradient(135deg, var(--gold), var(--rose-gold));
+            clip-path: polygon(50% 0%, 100% 50%, 50% 100%, 0% 50%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 2em;
+            left: 50%;
+            transform: translateX(-50%);
+            z-index: 10;
+            animation: diamond-pulse 2s infinite;
+        }
+
+        @keyframes diamond-pulse {
+            0%, 100% { transform: translateX(-50%) scale(1); }
+            50% { transform: translateX(-50%) scale(1.1); }
+        }
+
+        .event-ultra-title {
+            font-family: 'Tangerine', cursive;
+            font-size: 3em;
+            color: var(--gold);
+            margin-bottom: 20px;
+        }
+
+        .event-ultra-info {
+            color: #666;
+            line-height: 2;
+            font-size: 1.1em;
+        }
+
+        .location-btn {
+            display: inline-block;
+            margin-top: 20px;
+            padding: 12px 30px;
+            background: linear-gradient(135deg, var(--gold), var(--dark-gold));
+            color: white;
+            text-decoration: none;
+            border-radius: 25px;
+            transition: all 0.3s;
+        }
+
+        .location-btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 25px rgba(201, 162, 39, 0.4);
+        }
+
+        /* Interactive Gallery */
+        .gallery-ultra {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 20px;
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        .gallery-ultra-item {
+            position: relative;
+            aspect-ratio: 1;
+            overflow: hidden;
+            border-radius: 15px;
+            cursor: pointer;
+            transition: all 0.5s;
+        }
+
+        .gallery-ultra-item:hover {
+            transform: scale(1.05) rotate(2deg);
+            z-index: 10;
+        }
+
+        .gallery-ultra-item:nth-child(1) { grid-column: span 2; grid-row: span 2; }
+        .gallery-ultra-item:nth-child(5) { grid-column: span 2; }
+
+        .gallery-placeholder {
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(135deg, var(--gold), var(--rose-gold));
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 4em;
+            color: white;
+        }
+
+        /* Advanced Countdown */
+        .countdown-ultra-section {
+            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 800"><rect fill="%231A1A2E" width="1200" height="800"/></svg>') center/cover;
+            position: relative;
+        }
+
+        .countdown-ultra-grid {
+            display: flex;
+            justify-content: center;
+            gap: 60px;
+            flex-wrap: wrap;
+            margin-top: 80px;
+        }
+
+        .countdown-ultra-box {
+            position: relative;
+            width: 180px;
+            height: 180px;
+            background: rgba(255,255,255,0.05);
+            backdrop-filter: blur(20px);
+            border: 3px solid rgba(201, 162, 39, 0.5);
+            clip-path: polygon(30% 0%, 70% 0%, 100% 30%, 100% 70%, 70% 100%, 30% 100%, 0% 70%, 0% 30%);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.3s;
+        }
+
+        .countdown-ultra-box:hover {
+            background: rgba(255,255,255,0.1);
+            transform: scale(1.1);
+        }
+
+        .countdown-ultra-num {
+            font-size: 4em;
+            font-weight: bold;
+            color: var(--gold);
+            text-shadow: 0 0 20px rgba(201, 162, 39, 0.5);
+        }
+
+        .countdown-ultra-label {
+            font-size: 1em;
+            color: white;
+            text-transform: uppercase;
+            letter-spacing: 3px;
+            margin-top: 10px;
+        }
+
+        /* RSVP Section */
+        .rsvp-ultra {
+            max-width: 800px;
+            margin: 0 auto;
+            background: white;
+            padding: 60px;
+            border-radius: 30px;
+            box-shadow: 0 30px 80px rgba(0,0,0,0.15);
+            border: 3px solid var(--gold);
+        }
+
+        .rsvp-input {
+            width: 100%;
+            padding: 20px;
+            border: 2px solid #e0e0e0;
+            border-radius: 15px;
+            font-family: inherit;
+            font-size: 1.1em;
+            margin-bottom: 30px;
+            transition: all 0.3s;
+        }
+
+        .rsvp-input:focus {
+            outline: none;
+            border-color: var(--gold);
+            box-shadow: 0 0 0 4px rgba(201, 162, 39, 0.1);
+        }
+
+        textarea.rsvp-input {
+            min-height: 150px;
+            resize: vertical;
+        }
+
+        .rsvp-submit {
+            width: 100%;
+            padding: 22px;
+            background: linear-gradient(135deg, var(--gold), var(--dark-gold));
+            color: white;
+            border: none;
+            border-radius: 50px;
+            font-size: 1.3em;
+            cursor: pointer;
+            text-transform: uppercase;
+            letter-spacing: 3px;
+            transition: all 0.3s;
+            box-shadow: 0 10px 30px rgba(201, 162, 39, 0.3);
+        }
+
+        .rsvp-submit:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 40px rgba(201, 162, 39, 0.5);
+        }
+
+        /* Music Player */
+        .music-player {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            z-index: 9999;
+            width: 70px;
+            height: 70px;
+            background: linear-gradient(135deg, var(--gold), var(--dark-gold));
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            box-shadow: 0 10px 30px rgba(201, 162, 39, 0.5);
+            transition: all 0.3s;
+        }
+
+        .music-player:hover {
+            transform: scale(1.15);
+        }
+
+        /* Animasi playing state */
+        .music-player.playing {
+            animation: ultra-music-pulse 2s ease-in-out infinite;
+        }
+
+        @keyframes ultra-music-pulse {
+            0%, 100% { box-shadow: 0 10px 30px rgba(201, 162, 39, 0.5); }
+            50% { box-shadow: 0 10px 50px rgba(201, 162, 39, 1), 0 0 30px rgba(183, 110, 121, 0.5); }
+        }
+
+        .music-player.playing .music-icon-ultra {
+            animation: ultra-spin 3s linear infinite;
+        }
+
+        @keyframes ultra-spin {
+            from { transform: rotate(0deg); }
+            to { transform: rotate(360deg); }
+        }
+
+        .music-icon-ultra {
+            color: white;
+            font-size: 2em;
+            transition: all 0.3s;
+        }
+
+        @media (max-width: 1024px) {
+            .ultra-names { font-size: 5em; }
+            .couple-ultra-grid {
+                grid-template-columns: 1fr;
+                gap: 60px;
+            }
+            .center-diamond { transform: rotate(90deg); }
+            .timeline-ultra::before { left: 30px; }
+            .event-ultra-content {
+                width: calc(100% - 80px);
+                margin-left: 80px !important;
+            }
+            .timeline-diamond { left: 30px; }
+            .gallery-ultra {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        @media (max-width: 768px) {
+            .ultra-names { font-size: 3.5em; }
+            .ultra-photo-frame {
+                width: 280px;
+                height: 280px;
+            }
+            .ultra-photo { font-size: 6em; }
+            .gallery-ultra {
+                grid-template-columns: 1fr;
+            }
+            .gallery-ultra-item:nth-child(1),
+            .gallery-ultra-item:nth-child(5) {
+                grid-column: span 1;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Audio Musik Pernikahan Ultra Premium -->
+    <audio id="weddingMusicUltra" loop preload="auto">
+        <source src="https://www.soundhelix.com/examples/mp3/SoundHelix-Song-9.mp3" type="audio/mpeg">
+    </audio>
+
+    <div class="preloader" id="preloader">
+        <div class="loader"></div>
+        <div class="loader-text">Loading...</div>
+    </div>
+
+    <div class="bg-3d">
+        <div class="particles" id="particles"></div>
+    </div>
+
+    <div class="music-player" onclick="toggleMusicUltra()" id="musicPlayer" title="Kontrol Musik">
+        <div class="music-icon-ultra" id="musicIconUltra">🎵</div>
+    </div>
+
+    <div class="cover-ultra" id="coverUltra">
+        <div class="animated-rings">
+            <div class="ring"></div>
+            <div class="ring"></div>
+            <div class="ring"></div>
+        </div>
+        
+        <div class="cover-content-ultra">
+            <div class="ultra-subtitle">THE WEDDING OF</div>
+            <h1 class="ultra-names">Christopher<br>&<br>Anastasia</h1>
+            <div class="ultra-date">30 • SEPTEMBER • 2024</div>
+            <button class="diamond-btn" onclick="openUltraInvitation()">
+                OPEN INVITATION
+            </button>
+        </div>
+    </div>
+
+    <div class="content-ultra" id="contentUltra">
+        <section class="section-ultra">
+            <div class="ultra-header">
+                <div class="ultra-label">Bismillahirrahmanirrahim</div>
+                <h2 class="ultra-title">Assalamu'alaikum</h2>
+                <div class="ultra-divider"></div>
+                <p style="max-width: 900px; margin: 40px auto; font-size: 1.3em; line-height: 2.2; color: #666; text-align: center;">
+                    Dengan memohon rahmat dan ridho Allah Subhanahu Wa Ta'ala, kami bermaksud mengundang Bapak/Ibu/Saudara/i dalam acara pernikahan kami yang Insya Allah akan diselenggarakan pada:
+                </p>
+            </div>
+
+            <div class="couple-ultra-grid">
+                <div class="person-ultra-card">
+                    <div class="card-inner">
+                        <div class="ultra-photo-frame">
+                            <div class="frame-border"></div>
+                            <div class="ultra-photo">👨</div>
+                        </div>
+                        <h3 class="ultra-name">Christopher Adrian</h3>
+                        <p class="ultra-bio">
+                            Putra pertama dari<br>
+                            Bapak Adrian Kristianto, S.H., M.H.<br>
+                            & Ibu Dr. Michelle Angelina, M.Sc.
+                        </p>
+                        <div class="ultra-social">@chris.adrian</div>
+                    </div>
+                </div>
+
+                <div class="center-diamond">◆</div>
+
+                <div class="person-ultra-card">
+                    <div class="card-inner">
+                        <div class="ultra-photo-frame">
+                            <div class="frame-border"></div>
+                            <div class="ultra-photo">👩</div>
+                        </div>
+                        <h3 class="ultra-name">Anastasia Isabella</h3>
+                        <p class="ultra-bio">
+                            Putri kedua dari<br>
+                            Bapak Prof. Dr. Sebastian Clarke<br>
+                            & Ibu Isabella Margaretha, Ph.D.
+                        </p>
+                        <div class="ultra-social">@anastasia.bella</div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="section-ultra section-dark-ultra">
+            <div class="ultra-header">
+                <div class="ultra-label" style="color: var(--gold);">WEDDING EVENTS</div>
+                <h2 class="ultra-title">Acara Pernikahan</h2>
+                <div class="ultra-divider"></div>
+            </div>
+
+            <div class="timeline-ultra">
+                <div class="timeline-event">
+                    <div class="timeline-diamond">💍</div>
+                    <div class="event-ultra-content">
+                        <h3 class="event-ultra-title">Holy Matrimony</h3>
+                        <div class="event-ultra-info">
+                            <strong style="font-size: 1.3em; color: var(--gold);">Minggu, 30 September 2024</strong><br><br>
+                            Pukul 10.00 - 12.00 WIB<br><br>
+                            📍 Cathedral Church Jakarta<br>
+                            Jl. Katedral No. 7B<br>
+                            Jakarta Pusat, DKI Jakarta 10710
+                        </div>
+                        <a href="#" class="location-btn" onclick="openMapUltra('church'); return false;">View Location</a>
+                    </div>
+                </div>
+
+                <div class="timeline-event">
+                    <div class="timeline-diamond">🎊</div>
+                    <div class="event-ultra-content">
+                        <h3 class="event-ultra-title">Wedding Reception</h3>
+                        <div class="event-ultra-info">
+                            <strong style="font-size: 1.3em; color: var(--gold);">Minggu, 30 September 2024</strong><br><br>
+                            Pukul 18.00 - 22.00 WIB<br><br>
+                            📍 The St. Regis Jakarta<br>
+                            Jl. HR. Rasuna Said<br>
+                            Jakarta Selatan, DKI Jakarta 12940
+                        </div>
+                        <a href="#" class="location-btn" onclick="openMapUltra('reception'); return false;">View Location</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <div class="livestream-section">
+            <div class="ultra-header">
+                <div class="ultra-label" style="color: var(--gold);">WATCH ONLINE</div>
+                <h2 class="ultra-title" style="color: white;">Live Streaming</h2>
+                <div class="ultra-divider"></div>
+            </div>
+
+            <div class="stream-container">
+                <div class="stream-embed">
+                    📹 Live Stream<br>
+                    <small style="font-size: 0.4em; margin-top: 10px;">https://www.youtube.com/@catatansebuahbuku</small>
+                </div>
+                <div class="stream-info">
+                    <h3 style="font-size: 2em; margin-bottom: 15px;">Saksikan Acara Kami Secara Langsung</h3>
+                    <p style="font-size: 1.1em; color: #ccc;">Bagi yang tidak dapat hadir, Anda dapat menyaksikan acara kami melalui live streaming</p>
+                    <span class="stream-status">● LIVE</span>
+                </div>
+            </div>
+        </div>
+
+        <div class="countdown-ultra-section section-dark-ultra">
+            <div class="ultra-header">
+                <div class="ultra-label" style="color: var(--gold);">COUNTDOWN</div>
+                <h2 class="ultra-title">Menuju Hari Bahagia</h2>
+                <div class="ultra-divider"></div>
+            </div>
+
+            <div class="countdown-ultra-grid">
+                <div class="countdown-ultra-box">
+                    <div class="countdown-ultra-num" id="days5">0</div>
+                    <div class="countdown-ultra-label">Days</div>
+                </div>
+                <div class="countdown-ultra-box">
+                    <div class="countdown-ultra-num" id="hours5">0</div>
+                    <div class="countdown-ultra-label">Hours</div>
+                </div>
+                <div class="countdown-ultra-box">
+                    <div class="countdown-ultra-num" id="minutes5">0</div>
+                    <div class="countdown-ultra-label">Minutes</div>
+                </div>
+                <div class="countdown-ultra-box">
+                    <div class="countdown-ultra-num" id="seconds5">0</div>
+                    <div class="countdown-ultra-label">Seconds</div>
+                </div>
+            </div>
+        </div>
+
+        <section class="section-ultra">
+            <div class="ultra-header">
+                <div class="ultra-label">OUR GALLERY</div>
+                <h2 class="ultra-title">Momen Indah Kami</h2>
+                <div class="ultra-divider"></div>
+            </div>
+
+            <div class="gallery-ultra">
+                <div class="gallery-ultra-item">
+                    <div class="gallery-placeholder"><img src="" alt=""></div>
+                </div>
+                <div class="gallery-ultra-item">
+                    <div class="gallery-placeholder">📷</div>
+                </div>
+                <div class="gallery-ultra-item">
+                    <div class="gallery-placeholder">📷</div>
+                </div>
+                <div class="gallery-ultra-item">
+                    <div class="gallery-placeholder">📷</div>
+                </div>
+                <div class="gallery-ultra-item">
+                    <div class="gallery-placeholder">📷</div>
+                </div>
+                <div class="gallery-ultra-item">
+                    <div class="gallery-placeholder">📷</div>
+                </div>
+            </div>
+        </section>
+
+        <section class="section-ultra section-dark-ultra">
+            <div class="ultra-header">
+                <div class="ultra-label" style="color: var(--gold);">RSVP</div>
+                <h2 class="ultra-title">Konfirmasi Kehadiran</h2>
+                <div class="ultra-divider"></div>
+            </div>
+
+            <div class="rsvp-ultra">
+                <form onsubmit="submitRSVPUltra(event)">
+                    <input type="text" class="rsvp-input" placeholder="Nama Lengkap" required>
+                    <select class="rsvp-input" required>
+                        <option value="">Konfirmasi Kehadiran</option>
+                        <option value="hadir">Hadir</option>
+                        <option value="tidak">Tidak Hadir</option>
+                        <option value="ragu">Masih Ragu</option>
+                    </select>
+                    <input type="number" class="rsvp-input" placeholder="Jumlah Tamu" min="1" max="5" value="1">
+                    <textarea class="rsvp-input" placeholder="Ucapan & Doa untuk Kami" required></textarea>
+                    <button type="submit" class="rsvp-submit">Kirim Konfirmasi</button>
+                </form>
+            </div>
+        </section>
+
+        <footer class="section-ultra" style="background: var(--dark-navy); color: white; padding: 100px 20px; text-align: center;">
+            <div class="ultra-title" style="font-size: 4em; margin-bottom: 30px;">Thank You</div>
+            <p style="font-size: 1.4em; margin-bottom: 20px; color: var(--champagne);">Merupakan suatu kehormatan dan kebahagiaan bagi kami</p>
+            <p style="font-size: 1.2em; color: #ccc;">apabila Bapak/Ibu/Saudara/i berkenan hadir dan memberikan doa restu kepada kami</p>
+            <div class="ultra-divider" style="margin: 50px auto;"></div>
+            <p style="font-family: 'Tangerine', cursive; font-size: 3.5em; color: var(--gold); margin-bottom: 10px;">Christopher & Anastasia</p>
+            <p style="font-size: 2em; margin-top: 30px;">◆</p>
+            <p style="margin-top: 60px; font-size: 0.9em; color: #999;">© 2024 • Crafted with Love, Technology & Elegance</p>
+        </footer>
+    </div>
+
+    <script>
+        // Preloader
+        window.addEventListener('load', function() {
+            setTimeout(() => {
+                document.getElementById('preloader').classList.add('hidden');
+            }, 1500);
+        });
+
+        // Particles
+        const particlesContainer = document.getElementById('particles');
+        for(let i = 0; i < 50; i++) {
+            const particle = document.createElement('div');
+            particle.className = 'particle';
+            particle.style.left = Math.random() * 100 + '%';
+            particle.style.animationDelay = Math.random() * 10 + 's';
+            particle.style.animationDuration = (Math.random() * 10 + 10) + 's';
+            particlesContainer.appendChild(particle);
+        }
+
+        const bgMusicUltra = document.getElementById('weddingMusicUltra');
+        let musicPlayingUltra = false;
+
+        function openUltraInvitation() {
+            document.getElementById('coverUltra').style.display = 'none';
+            document.getElementById('contentUltra').style.display = 'block';
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+            // Auto-play musik ultra premium
+            setTimeout(() => {
+                bgMusicUltra.volume = 0.4;
+                bgMusicUltra.play().then(() => {
+                    musicPlayingUltra = true;
+                    updateMusicBtnUltra();
+                }).catch(err => console.log('Autoplay blocked:', err));
+            }, 1000);
+        }
+
+        function toggleMusicUltra() {
+            if (musicPlayingUltra) {
+                bgMusicUltra.pause();
+                musicPlayingUltra = false;
+            } else {
+                bgMusicUltra.play();
+                musicPlayingUltra = true;
+            }
+            updateMusicBtnUltra();
+        }
+
+        function updateMusicBtnUltra() {
+            const btn = document.getElementById('musicPlayer');
+            const icon = document.getElementById('musicIconUltra');
+            if (musicPlayingUltra) {
+                btn.classList.add('playing');
+                icon.textContent = '🎶';
+            } else {
+                btn.classList.remove('playing');
+                icon.textContent = '🎵';
+            }
+        }
+
+        // Countdown
+        const weddingDateUltra = new Date('2024-09-30T10:00:00').getTime();
+
+        function updateCountdownUltra() {
+            const now = new Date().getTime();
+            const distance = weddingDateUltra - now;
+
+            const days = Math.floor(distance / (1000 * 60 * 60 * 24));
+            const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+            const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+            const seconds = Math.floor((distance % (1000 * 60)) / 1000);
+
+            document.getElementById('days5').textContent = days >= 0 ? days : 0;
+            document.getElementById('hours5').textContent = hours >= 0 ? hours : 0;
+            document.getElementById('minutes5').textContent = minutes >= 0 ? minutes : 0;
+            document.getElementById('seconds5').textContent = seconds >= 0 ? seconds : 0;
+        }
+
+        setInterval(updateCountdownUltra, 1000);
+        updateCountdownUltra();
+
+        function openMapUltra(type) {
+            window.open('https://maps.google.com', '_blank');
+        }
+
+        function submitRSVPUltra(e) {
+            e.preventDefault();
+            alert('Terima kasih atas konfirmasi kehadirannya! Data Anda telah tersimpan.');
+            e.target.reset();
+        }
+
+        // Smooth scroll
+        document.addEventListener('DOMContentLoaded', function() {
+            const observerOptions = {
+                threshold: 0.1,
+                rootMargin: '0px 0px -100px 0px'
+            };
+
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.style.opacity = '1';
+                        entry.target.style.transform = 'translateY(0)';
+                    }
+                });
+            }, observerOptions);
+
+            document.querySelectorAll('.section-ultra').forEach(section => {
+                section.style.opacity = '0';
+                section.style.transform = 'translateY(50px)';
+                section.style.transition = 'all 1s ease';
+                observer.observe(section);
+            });
+        });
+    </script>
+</body>
+</html>

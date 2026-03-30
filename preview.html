@@ -1,0 +1,1034 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Preview Template Undangan Pernikahan Digital - Premium Collection</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --primary: #D4AF37;
+            --secondary: #8B7355;
+            --accent: #C9A88A;
+            --dark: #2C2416;
+            --light: #FAF9F6;
+            --success: #10B981;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            padding: 20px;
+        }
+
+        .container {
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        /* Header */
+        .header {
+            text-align: center;
+            color: white;
+            padding: 60px 20px;
+            animation: fadeInDown 1s ease;
+        }
+
+        .header h1 {
+            font-size: 3.5em;
+            margin-bottom: 20px;
+            text-shadow: 2px 2px 10px rgba(0,0,0,0.3);
+        }
+
+        .header p {
+            font-size: 1.3em;
+            opacity: 0.95;
+            max-width: 800px;
+            margin: 0 auto;
+            line-height: 1.6;
+        }
+
+        .header .tagline {
+            margin-top: 20px;
+            font-size: 1.1em;
+            background: rgba(255,255,255,0.2);
+            backdrop-filter: blur(10px);
+            display: inline-block;
+            padding: 10px 30px;
+            border-radius: 50px;
+            margin-top: 30px;
+        }
+
+        /* Templates Grid */
+        .templates-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 40px;
+            margin-top: 40px;
+        }
+
+        .template-card {
+            background: white;
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: 0 20px 60px rgba(0,0,0,0.3);
+            transition: all 0.4s;
+            animation: fadeInUp 1s ease;
+            position: relative;
+        }
+
+        .template-card:hover {
+            transform: translateY(-15px);
+            box-shadow: 0 30px 80px rgba(0,0,0,0.4);
+        }
+
+        .template-badge {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            z-index: 10;
+            padding: 8px 20px;
+            border-radius: 20px;
+            font-size: 0.85em;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .badge-basic {
+            background: linear-gradient(135deg, #60a5fa, #3b82f6);
+            color: white;
+        }
+
+        .badge-standard {
+            background: linear-gradient(135deg, #34d399, #10b981);
+            color: white;
+        }
+
+        .badge-advanced {
+            background: linear-gradient(135deg, #f59e0b, #d97706);
+            color: white;
+        }
+
+        .badge-premium {
+            background: linear-gradient(135deg, #ec4899, #db2777);
+            color: white;
+        }
+
+        .badge-ultra {
+            background: linear-gradient(135deg, #8b5cf6, #7c3aed);
+            color: white;
+        }
+
+        .template-preview {
+            height: 300px;
+            background: linear-gradient(135deg, #f0f0f0, #e0e0e0);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 4em;
+            color: #ccc;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .template-preview::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(135deg, rgba(212, 175, 55, 0.1), rgba(139, 115, 85, 0.1));
+            transition: all 0.3s;
+        }
+
+        .template-card:hover .template-preview::before {
+            background: linear-gradient(135deg, rgba(212, 175, 55, 0.2), rgba(139, 115, 85, 0.2));
+        }
+
+        .template-icon {
+            position: relative;
+            z-index: 1;
+            animation: float 3s ease-in-out infinite;
+        }
+
+        @keyframes float {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-20px); }
+        }
+
+        .template-info {
+            padding: 30px;
+        }
+
+        .template-title {
+            font-size: 1.8em;
+            color: var(--dark);
+            margin-bottom: 10px;
+            font-weight: 600;
+        }
+
+        .template-price {
+            font-size: 1.5em;
+            color: var(--primary);
+            font-weight: bold;
+            margin-bottom: 20px;
+        }
+
+        .template-price .old-price {
+            font-size: 0.7em;
+            color: #999;
+            text-decoration: line-through;
+            margin-left: 10px;
+        }
+
+        .template-features {
+            list-style: none;
+            margin: 20px 0;
+        }
+
+        .template-features li {
+            padding: 8px 0;
+            color: #666;
+            font-size: 0.95em;
+            display: flex;
+            align-items: center;
+        }
+
+        .template-features li::before {
+            content: '✓';
+            color: var(--success);
+            font-weight: bold;
+            margin-right: 10px;
+            font-size: 1.2em;
+        }
+
+        .template-features li.premium-feature::before {
+            content: '⭐';
+        }
+
+        .button-group {
+            display: flex;
+            gap: 10px;
+            margin-top: 25px;
+        }
+
+        .btn {
+            flex: 1;
+            padding: 14px 20px;
+            border: none;
+            border-radius: 10px;
+            font-size: 1em;
+            cursor: pointer;
+            transition: all 0.3s;
+            text-decoration: none;
+            text-align: center;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        .btn-preview {
+            background: linear-gradient(135deg, #667eea, #764ba2);
+            color: white;
+        }
+
+        .btn-preview:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 25px rgba(102, 126, 234, 0.4);
+        }
+
+        .btn-buy {
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            color: white;
+        }
+
+        .btn-buy:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 25px rgba(212, 175, 55, 0.4);
+        }
+
+        /* Features Comparison Section */
+        .comparison-section {
+            margin-top: 80px;
+            background: white;
+            border-radius: 20px;
+            padding: 60px 40px;
+            box-shadow: 0 20px 60px rgba(0,0,0,0.3);
+            animation: fadeInUp 1s ease 0.3s both;
+        }
+
+        .comparison-title {
+            text-align: center;
+            font-size: 2.5em;
+            color: var(--dark);
+            margin-bottom: 50px;
+        }
+
+        .comparison-table {
+            width: 100%;
+            border-collapse: collapse;
+            overflow-x: auto;
+            display: block;
+        }
+
+        .comparison-table thead {
+            background: linear-gradient(135deg, #667eea, #764ba2);
+            color: white;
+        }
+
+        .comparison-table th,
+        .comparison-table td {
+            padding: 15px;
+            text-align: center;
+            border: 1px solid #e0e0e0;
+        }
+
+        .comparison-table th {
+            font-weight: 600;
+            text-transform: uppercase;
+            font-size: 0.9em;
+            letter-spacing: 1px;
+        }
+
+        .comparison-table tbody tr:nth-child(even) {
+            background: #f9f9f9;
+        }
+
+        .comparison-table .feature-name {
+            text-align: left;
+            font-weight: 500;
+            color: #333;
+        }
+
+        .check {
+            color: var(--success);
+            font-size: 1.5em;
+        }
+
+        .cross {
+            color: #ef4444;
+            font-size: 1.2em;
+        }
+
+        /* FAQ Section */
+        .faq-section {
+            margin-top: 60px;
+            background: rgba(255,255,255,0.95);
+            border-radius: 20px;
+            padding: 60px 40px;
+            box-shadow: 0 20px 60px rgba(0,0,0,0.3);
+            animation: fadeInUp 1s ease 0.4s both;
+        }
+
+        .faq-title {
+            text-align: center;
+            font-size: 2.5em;
+            color: var(--dark);
+            margin-bottom: 40px;
+        }
+
+        .faq-item {
+            margin-bottom: 25px;
+            border-bottom: 2px solid #e0e0e0;
+            padding-bottom: 20px;
+        }
+
+        .faq-question {
+            font-size: 1.3em;
+            color: var(--dark);
+            font-weight: 600;
+            margin-bottom: 10px;
+        }
+
+        .faq-answer {
+            color: #666;
+            line-height: 1.8;
+            font-size: 1.05em;
+        }
+
+        /* CTA Section */
+        .cta-section {
+            margin-top: 60px;
+            text-align: center;
+            padding: 80px 20px;
+            background: linear-gradient(135deg, rgba(255,255,255,0.1), rgba(255,255,255,0.05));
+            backdrop-filter: blur(10px);
+            border-radius: 20px;
+            border: 2px solid rgba(255,255,255,0.2);
+            animation: fadeInUp 1s ease 0.5s both;
+        }
+
+        .cta-title {
+            font-size: 2.5em;
+            color: white;
+            margin-bottom: 20px;
+        }
+
+        .cta-text {
+            font-size: 1.2em;
+            color: white;
+            margin-bottom: 40px;
+            opacity: 0.9;
+        }
+
+        .cta-buttons {
+            display: flex;
+            gap: 20px;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        .cta-btn {
+            padding: 18px 50px;
+            border: none;
+            border-radius: 50px;
+            font-size: 1.2em;
+            cursor: pointer;
+            transition: all 0.3s;
+            text-decoration: none;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .cta-btn-primary {
+            background: white;
+            color: #667eea;
+        }
+
+        .cta-btn-primary:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 40px rgba(255,255,255,0.4);
+        }
+
+        .cta-btn-secondary {
+            background: transparent;
+            color: white;
+            border: 2px solid white;
+        }
+
+        .cta-btn-secondary:hover {
+            background: white;
+            color: #667eea;
+        }
+
+        /* Footer */
+        .footer {
+            margin-top: 60px;
+            text-align: center;
+            color: white;
+            padding: 40px 20px;
+            opacity: 0.9;
+        }
+
+        .footer a {
+            color: white;
+            text-decoration: none;
+            margin: 0 15px;
+            transition: opacity 0.3s;
+        }
+
+        .footer a:hover {
+            opacity: 0.7;
+        }
+
+        /* Modal for Preview */
+        .modal {
+            display: none;
+            position: fixed;
+            z-index: 10000;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0,0,0,0.95);
+            animation: fadeIn 0.3s ease;
+        }
+
+        .modal-content {
+            position: relative;
+            width: 90%;
+            height: 90%;
+            margin: 2% auto;
+            background: white;
+            border-radius: 10px;
+            overflow: hidden;
+        }
+
+        .modal-close {
+            position: absolute;
+            top: 20px;
+            right: 30px;
+            color: white;
+            font-size: 40px;
+            font-weight: bold;
+            cursor: pointer;
+            z-index: 10001;
+            background: rgba(0,0,0,0.5);
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.3s;
+        }
+
+        .modal-close:hover {
+            background: rgba(0,0,0,0.8);
+            transform: rotate(90deg);
+        }
+
+        .modal-iframe {
+            width: 100%;
+            height: 100%;
+            border: none;
+        }
+
+        /* Animations */
+        @keyframes fadeInDown {
+            from {
+                opacity: 0;
+                transform: translateY(-50px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(50px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .header h1 {
+                font-size: 2em;
+            }
+
+            .header p {
+                font-size: 1em;
+            }
+
+            .templates-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .comparison-table {
+                font-size: 0.85em;
+            }
+
+            .comparison-table th,
+            .comparison-table td {
+                padding: 10px 5px;
+            }
+
+            .cta-buttons {
+                flex-direction: column;
+                align-items: stretch;
+            }
+
+            .modal-content {
+                width: 95%;
+                height: 95%;
+                margin: 2.5% auto;
+            }
+        }
+
+        /* Loading Animation */
+        .loading {
+            display: inline-block;
+            width: 20px;
+            height: 20px;
+            border: 3px solid rgba(255,255,255,.3);
+            border-radius: 50%;
+            border-top-color: white;
+            animation: spin 1s ease-in-out infinite;
+        }
+
+        @keyframes spin {
+            to { transform: rotate(360deg); }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <!-- Header -->
+        <div class="header">
+            <h1>🎊 Template Undangan Pernikahan Digital</h1>
+            <p>Koleksi Premium - 5 Template Modern & Responsif untuk Hari Spesial Anda</p>
+            <div class="tagline">✨ Siap Pakai • Mudah Dikustomisasi • Harga Terjangkau ✨</div>
+        </div>
+
+        <!-- Templates Grid -->
+        <div class="templates-grid">
+            <!-- Template 1: Basic -->
+            <div class="template-card">
+                <div class="template-badge badge-basic">Basic</div>
+                <div class="template-preview">
+                    <div class="template-icon">💍</div>
+                </div>
+                <div class="template-info">
+                    <h3 class="template-title">Template Basic</h3>
+                    <div class="template-price">
+                        Rp 75.000
+                        <span class="old-price">Rp 100.000</span>
+                    </div>
+                    <ul class="template-features">
+                        <li>Cover page elegant</li>
+                        <li>Info mempelai & orang tua</li>
+                        <li>Detail acara lengkap</li>
+                        <li>Countdown timer</li>
+                        <li>Desain responsif</li>
+                        <li>Animasi smooth</li>
+                    </ul>
+                    <div class="button-group">
+                        <a href="#" class="btn btn-preview" onclick="openPreview('Basic/index.html'); return false;">
+                            👁️ Preview
+                        </a>
+                        <a href="#" class="btn btn-buy" onclick="buyTemplate('Basic'); return false;">
+                            🛒 Beli
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Template 2: Standard -->
+            <div class="template-card">
+                <div class="template-badge badge-standard">Standard</div>
+                <div class="template-preview">
+                    <div class="template-icon">💐</div>
+                </div>
+                <div class="template-info">
+                    <h3 class="template-title">Template Standard</h3>
+                    <div class="template-price">
+                        Rp 200.000
+                        <span class="old-price">Rp 250.000</span>
+                    </div>
+                    <ul class="template-features">
+                        <li>Semua fitur Basic</li>
+                        <li>Galeri foto (6 foto)</li>
+                        <li>Formulir RSVP</li>
+                        <li>Kontrol musik</li>
+                        <li>Social media links</li>
+                        <li class="premium-feature">Animasi interaktif</li>
+                    </ul>
+                    <div class="button-group">
+                        <a href="#" class="btn btn-preview" onclick="openPreview('standard/index.html'); return false;">
+                            👁️ Preview
+                        </a>
+                        <a href="#" class="btn btn-buy" onclick="buyTemplate('Standard'); return false;">
+                            🛒 Beli
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Template 3: Advanced -->
+            <div class="template-card">
+                <div class="template-badge badge-advanced">Advanced</div>
+                <div class="template-preview">
+                    <div class="template-icon">💖</div>
+                </div>
+                <div class="template-info">
+                    <h3 class="template-title">Template Advanced</h3>
+                    <div class="template-price">
+                        Rp 400.000
+                        <span class="old-price">Rp 500.000</span>
+                    </div>
+                    <ul class="template-features">
+                        <li>Semua fitur Standard</li>
+                        <li class="premium-feature">Parallax scrolling</li>
+                        <li class="premium-feature">Timeline love story</li>
+                        <li>Galeri masonry</li>
+                        <li>Google Maps integration</li>
+                        <li class="premium-feature">Wishes dari tamu</li>
+                    </ul>
+                    <div class="button-group">
+                        <a href="#" class="btn btn-preview" onclick="openPreview('advance/index.html'); return false;">
+                            👁️ Preview
+                        </a>
+                        <a href="#" class="btn btn-buy" onclick="buyTemplate('Advanced'); return false;">
+                            🛒 Beli
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Template 4: Premium -->
+            <div class="template-card">
+                <div class="template-badge badge-premium">Premium</div>
+                <div class="template-preview">
+                    <div class="template-icon">👑</div>
+                </div>
+                <div class="template-info">
+                    <h3 class="template-title">Template Premium</h3>
+                    <div class="template-price">
+                        Rp 625.000
+                        <span class="old-price">Rp 750.000</span>
+                    </div>
+                    <ul class="template-features">
+                        <li>Semua fitur Advanced</li>
+                        <li class="premium-feature">Video background</li>
+                        <li class="premium-feature">Luxury design</li>
+                        <li class="premium-feature">Amplop digital</li>
+                        <li class="premium-feature">3D photo frames</li>
+                        <li class="premium-feature">Custom fonts</li>
+                    </ul>
+                    <div class="button-group">
+                        <a href="#" class="btn btn-preview" onclick="openPreview('premium/index.html'); return false;">
+                            👁️ Preview
+                        </a>
+                        <a href="#" class="btn btn-buy" onclick="buyTemplate('Premium'); return false;">
+                            🛒 Beli
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Template 5: Ultra Premium -->
+            <div class="template-card">
+                <div class="template-badge badge-ultra">Ultra Premium</div>
+                <div class="template-preview">
+                    <div class="template-icon">💎</div>
+                </div>
+                <div class="template-info">
+                    <h3 class="template-title">Template Ultra Premium</h3>
+                    <div class="template-price">
+                        Rp 1.150.000
+                        <span class="old-price">Rp 1.500.000</span>
+                    </div>
+                    <ul class="template-features">
+                        <li>Semua fitur Premium</li>
+                        <li class="premium-feature">Preloader animation</li>
+                        <li class="premium-feature">Particle effects 3D</li>
+                        <li class="premium-feature">Live streaming embed</li>
+                        <li class="premium-feature">Advanced RSVP</li>
+                        <li class="premium-feature">Fitur paling lengkap!</li>
+                    </ul>
+                    <div class="button-group">
+                        <a href="#" class="btn btn-preview" onclick="openPreview('ultrapremium/index.html'); return false;">
+                            👁️ Preview
+                        </a>
+                        <a href="#" class="btn btn-buy" onclick="buyTemplate('Ultra Premium'); return false;">
+                            🛒 Beli
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Comparison Table -->
+        <div class="comparison-section">
+            <h2 class="comparison-title">📊 Perbandingan Fitur</h2>
+            <table class="comparison-table">
+                <thead>
+                    <tr>
+                        <th>Fitur</th>
+                        <th>Basic</th>
+                        <th>Standard</th>
+                        <th>Advanced</th>
+                        <th>Premium</th>
+                        <th>Ultra</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td class="feature-name">Cover Page Elegant</td>
+                        <td><span class="check">✓</span></td>
+                        <td><span class="check">✓</span></td>
+                        <td><span class="check">✓</span></td>
+                        <td><span class="check">✓</span></td>
+                        <td><span class="check">✓</span></td>
+                    </tr>
+                    <tr>
+                        <td class="feature-name">Info Mempelai</td>
+                        <td><span class="check">✓</span></td>
+                        <td><span class="check">✓</span></td>
+                        <td><span class="check">✓</span></td>
+                        <td><span class="check">✓</span></td>
+                        <td><span class="check">✓</span></td>
+                    </tr>
+                    <tr>
+                        <td class="feature-name">Countdown Timer</td>
+                        <td><span class="check">✓</span></td>
+                        <td><span class="check">✓</span></td>
+                        <td><span class="check">✓</span></td>
+                        <td><span class="check">✓</span></td>
+                        <td><span class="check">✓</span></td>
+                    </tr>
+                    <tr>
+                        <td class="feature-name">Galeri Foto</td>
+                        <td><span class="cross">✗</span></td>
+                        <td><span class="check">✓</span></td>
+                        <td><span class="check">✓</span></td>
+                        <td><span class="check">✓</span></td>
+                        <td><span class="check">✓</span></td>
+                    </tr>
+                    <tr>
+                        <td class="feature-name">Formulir RSVP</td>
+                        <td><span class="cross">✗</span></td>
+                        <td><span class="check">✓</span></td>
+                        <td><span class="check">✓</span></td>
+                        <td><span class="check">✓</span></td>
+                        <td><span class="check">✓</span></td>
+                    </tr>
+                    <tr>
+                        <td class="feature-name">Kontrol Musik</td>
+                        <td><span class="cross">✗</span></td>
+                        <td><span class="check">✓</span></td>
+                        <td><span class="check">✓</span></td>
+                        <td><span class="check">✓</span></td>
+                        <td><span class="check">✓</span></td>
+                    </tr>
+                    <tr>
+                        <td class="feature-name">Parallax Scrolling</td>
+                        <td><span class="cross">✗</span></td>
+                        <td><span class="cross">✗</span></td>
+                        <td><span class="check">✓</span></td>
+                        <td><span class="check">✓</span></td>
+                        <td><span class="check">✓</span></td>
+                    </tr>
+                    <tr>
+                        <td class="feature-name">Timeline Love Story</td>
+                        <td><span class="cross">✗</span></td>
+                        <td><span class="cross">✗</span></td>
+                        <td><span class="check">✓</span></td>
+                        <td><span class="check">✓</span></td>
+                        <td><span class="check">✓</span></td>
+                    </tr>
+                    <tr>
+                        <td class="feature-name">Google Maps</td>
+                        <td><span class="cross">✗</span></td>
+                        <td><span class="cross">✗</span></td>
+                        <td><span class="check">✓</span></td>
+                        <td><span class="check">✓</span></td>
+                        <td><span class="check">✓</span></td>
+                    </tr>
+                    <tr>
+                        <td class="feature-name">Amplop Digital</td>
+                        <td><span class="cross">✗</span></td>
+                        <td><span class="cross">✗</span></td>
+                        <td><span class="cross">✗</span></td>
+                        <td><span class="check">✓</span></td>
+                        <td><span class="check">✓</span></td>
+                    </tr>
+                    <tr>
+                        <td class="feature-name">Video Background</td>
+                        <td><span class="cross">✗</span></td>
+                        <td><span class="cross">✗</span></td>
+                        <td><span class="cross">✗</span></td>
+                        <td><span class="check">✓</span></td>
+                        <td><span class="check">✓</span></td>
+                    </tr>
+                    <tr>
+                        <td class="feature-name">Live Streaming</td>
+                        <td><span class="cross">✗</span></td>
+                        <td><span class="cross">✗</span></td>
+                        <td><span class="cross">✗</span></td>
+                        <td><span class="cross">✗</span></td>
+                        <td><span class="check">✓</span></td>
+                    </tr>
+                    <tr>
+                        <td class="feature-name">3D Effects</td>
+                        <td><span class="cross">✗</span></td>
+                        <td><span class="cross">✗</span></td>
+                        <td><span class="cross">✗</span></td>
+                        <td><span class="cross">✗</span></td>
+                        <td><span class="check">✓</span></td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+        <!-- FAQ Section -->
+        <div class="faq-section">
+            <h2 class="faq-title">❓ Pertanyaan yang Sering Diajukan</h2>
+            
+            <div class="faq-item">
+                <div class="faq-question">Apakah template ini mudah dikustomisasi?</div>
+                <div class="faq-answer">
+                    Ya! Semua template dibuat dalam single file HTML yang mudah diedit. Anda hanya perlu mengganti teks (nama, tanggal, lokasi) dengan text editor seperti Notepad, VS Code, atau Sublime Text. Tidak perlu coding skill khusus!
+                </div>
+            </div>
+
+            <div class="faq-item">
+                <div class="faq-question">Apakah bisa menambahkan foto sendiri?</div>
+                <div class="faq-answer">
+                    Tentu! Template sudah memiliki placeholder yang bisa Anda ganti dengan foto Anda sendiri. Kami juga menyediakan panduan lengkap di file README.md tentang cara menambahkan foto.
+                </div>
+            </div>
+
+            <div class="faq-item">
+                <div class="faq-question">Bagaimana cara hosting/deploy undangan?</div>
+                <div class="faq-answer">
+                    Anda bisa menggunakan hosting gratis seperti GitHub Pages, Netlify, atau Vercel. Untuk hosting berbayar, bisa menggunakan Niagahoster, Hostinger, atau penyedia hosting lainnya. Panduan lengkap tersedia di dokumentasi.
+                </div>
+            </div>
+
+            <div class="faq-item">
+                <div class="faq-question">Apakah template responsif di semua device?</div>
+                <div class="faq-answer">
+                    Ya! Semua template sudah fully responsive dan akan tampil sempurna di desktop, tablet, dan smartphone. Sudah ditest di berbagai browser (Chrome, Firefox, Safari, Edge).
+                </div>
+            </div>
+
+            <div class="faq-item">
+                <div class="faq-question">Apakah ada support/bantuan jika ada kendala?</div>
+                <div class="faq-answer">
+                    Setelah pembelian, Anda akan mendapatkan akses ke dokumentasi lengkap dan support via WhatsApp/Email untuk membantu proses customization dan deployment.
+                </div>
+            </div>
+
+            <div class="faq-item">
+                <div class="faq-question">Apakah bisa request custom fitur tambahan?</div>
+                <div class="faq-answer">
+                    Ya! Kami menerima request customization dengan biaya tambahan sesuai kompleksitas. Hubungi kami untuk diskusi kebutuhan Anda.
+                </div>
+            </div>
+        </div>
+
+        <!-- CTA Section -->
+        <div class="cta-section">
+            <h2 class="cta-title">🎉 Siap Membuat Undangan Impian Anda?</h2>
+            <p class="cta-text">Pilih template favorit Anda dan mulai persiapan pernikahan yang tak terlupakan!</p>
+            <div class="cta-buttons">
+                <a href="#" class="cta-btn cta-btn-primary" onclick="contactUs(); return false;">
+                    📱 Hubungi Kami
+                </a>
+                <a href="#" class="cta-btn cta-btn-secondary" onclick="scrollToTop(); return false;">
+                    ⬆️ Lihat Template
+                </a>
+            </div>
+        </div>
+
+        <!-- Footer -->
+        <div class="footer">
+            <p style="margin-bottom: 15px; font-size: 1.2em;">Made with ❤️ for Your Special Day</p>
+            <div>
+                <a href="#" onclick="contactUs(); return false;">WhatsApp</a>
+                <a href="#" onclick="contactUs(); return false;">Instagram</a>
+                <a href="#" onclick="contactUs(); return false;">Email</a>
+            </div>
+            <p style="margin-top: 20px; opacity: 0.7; font-size: 0.9em;">© 2024 Wedding Invitation Templates. All rights reserved.</p>
+        </div>
+    </div>
+
+    <!-- Modal for Preview -->
+    <div id="previewModal" class="modal">
+        <span class="modal-close" onclick="closePreview()">&times;</span>
+        <div class="modal-content">
+            <iframe id="previewFrame" class="modal-iframe"></iframe>
+        </div>
+    </div>
+
+    <script>
+        function openPreview(templateFile) {
+            const modal = document.getElementById('previewModal');
+            const iframe = document.getElementById('previewFrame');
+            iframe.src = templateFile;
+            modal.style.display = 'block';
+            document.body.style.overflow = 'hidden';
+        }
+
+        function closePreview() {
+            const modal = document.getElementById('previewModal');
+            const iframe = document.getElementById('previewFrame');
+            modal.style.display = 'none';
+            iframe.src = '';
+            document.body.style.overflow = 'auto';
+        }
+
+        function buyTemplate(templateName) {
+            const message = `Halo! Saya tertarik untuk membeli Template ${templateName}. Mohon info lebih lanjut mengenai proses pembelian dan customization.`;
+            const whatsappNumber = '6281234567890'; // Ganti dengan nomor WhatsApp Anda
+            const whatsappURL = `https://wa.me/${whatsappNumber}?text=${encodeURIComponent(message)}`;
+            window.open(whatsappURL, '_blank');
+        }
+
+        function contactUs() {
+            const message = 'Halo! Saya ingin bertanya tentang template undangan pernikahan digital.';
+            const whatsappNumber = '6281234567890'; // Ganti dengan nomor WhatsApp Anda
+            const whatsappURL = `https://wa.me/${whatsappNumber}?text=${encodeURIComponent(message)}`;
+            window.open(whatsappURL, '_blank');
+        }
+
+        function scrollToTop() {
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+
+        // Close modal when clicking outside
+        window.onclick = function(event) {
+            const modal = document.getElementById('previewModal');
+            if (event.target === modal) {
+                closePreview();
+            }
+        }
+
+        // Close modal with ESC key
+        document.addEventListener('keydown', function(event) {
+            if (event.key === 'Escape') {
+                closePreview();
+            }
+        });
+
+        // Smooth scroll for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                const href = this.getAttribute('href');
+                if (href !== '#') {
+                    e.preventDefault();
+                    const target = document.querySelector(href);
+                    if (target) {
+                        target.scrollIntoView({ behavior: 'smooth' });
+                    }
+                }
+            });
+        });
+
+        // Animation on scroll
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.opacity = '1';
+                    entry.target.style.transform = 'translateY(0)';
+                }
+            });
+        }, observerOptions);
+
+        // Observe all template cards
+        document.querySelectorAll('.template-card').forEach((card, index) => {
+            card.style.opacity = '0';
+            card.style.transform = 'translateY(30px)';
+            card.style.transition = `all 0.6s ease ${index * 0.1}s`;
+            observer.observe(card);
+        });
+    </script>
+</body>
+</html>
