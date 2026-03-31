@@ -777,6 +777,76 @@
                 grid-column: span 1;
             }
         }
+
+        /* Wishes Display di Ultra Premium */
+        .wishes-display-ultra {
+            max-width: 800px;
+            margin: 50px auto 0;
+            max-height: 500px;
+            overflow-y: auto;
+            padding-right: 15px;
+        }
+
+        .wishes-display-ultra::-webkit-scrollbar {
+            width: 8px;
+        }
+
+        .wishes-display-ultra::-webkit-scrollbar-track {
+            background: rgba(255,255,255,0.05);
+            border-radius: 10px;
+        }
+
+        .wishes-display-ultra::-webkit-scrollbar-thumb {
+            background: var(--gold);
+            border-radius: 10px;
+        }
+
+        .wish-item-ultra {
+            background: rgba(255,255,255,0.05);
+            backdrop-filter: blur(10px);
+            padding: 30px;
+            border-radius: 20px;
+            margin-bottom: 20px;
+            border: 1px solid rgba(201, 162, 39, 0.3);
+            border-left: 4px solid var(--gold);
+            transition: all 0.3s;
+        }
+
+        .wish-item-ultra:hover {
+            transform: translateX(10px);
+            background: rgba(255,255,255,0.1);
+        }
+
+        .wish-author-ultra {
+            font-size: 1.3em;
+            color: var(--gold);
+            font-weight: 600;
+            margin-bottom: 12px;
+            font-family: serif;
+        }
+
+        .wish-text-ultra {
+            color: #ccc;
+            line-height: 1.8;
+            margin-bottom: 15px;
+            font-style: italic;
+        }
+
+        .wish-time-ultra {
+            font-size: 0.9em;
+            color: #888;
+        }
+        
+        @keyframes fadeInScaleUltra {
+            from {
+                opacity: 0;
+                transform: scale(0.9) translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: scale(1) translateY(0);
+            }
+        }
     </style>
 </head>
 <body>
@@ -1001,6 +1071,20 @@
                     <button type="submit" class="rsvp-submit">💬 Kirim via WhatsApp</button>
                 </form>
             </div>
+
+            <!-- Menambahkan Visual Daftar Ucapan secara dinamis -->
+            <div class="wishes-display-ultra" id="wishesListUltra">
+                <div class="wish-item-ultra">
+                    <div class="wish-author-ultra">💌 Tuan & Nyonya Smith</div>
+                    <div class="wish-text-ultra">"Wishing you a lifetime of joy and happiness! May your love continue to grow stronger each and every passing year."</div>
+                    <div class="wish-time-ultra">1 hari yang lalu</div>
+                </div>
+                <div class="wish-item-ultra">
+                    <div class="wish-author-ultra">💌 Dr. Jonathan & Family</div>
+                    <div class="wish-text-ultra">"Selamat menempuh hidup baru! Semoga rukun dan bahagia selalu sampai kakek nenek."</div>
+                    <div class="wish-time-ultra">2 hari yang lalu</div>
+                </div>
+            </div>
         </section>
 
         <footer class="section-ultra" style="background: var(--dark-navy); color: white; padding: 100px 20px; text-align: center;">
@@ -1112,6 +1196,18 @@
 
             const statusHadir = hadir === 'hadir' ? '✅ Hadir' : hadir === 'tidak' ? '❌ Tidak Hadir' : '❓ Masih Ragu';
 
+            // 1. Tampilkan ucapan di web secara visual
+            const wishItem = document.createElement('div');
+            wishItem.className = 'wish-item-ultra';
+            wishItem.style.animation = 'fadeInScaleUltra 0.5s ease-out forwards';
+            wishItem.innerHTML = `
+                <div class="wish-author-ultra">💌 ${nama}</div>
+                <div class="wish-text-ultra">"${pesan}"</div>
+                <div class="wish-time-ultra">Baru saja</div>
+            `;
+            document.getElementById('wishesListUltra').prepend(wishItem);
+
+            // 2. Kirim ke WA
             const waMsg = `Assalamu'alaikum! 🌸\n\nHalo Christopher & Anastasia,\n\nSaya *${nama}* ingin menyampaikan:\n\n📌 *Status Kehadiran:* ${statusHadir}\n\n💌 *Ucapan & Doa:*\n_${pesan}_\n\nBarakallahu lakuma wa baraka 'alaikuma wa jama'a bainakuma fi khair 💕`;
             const waURL = `https://wa.me/${NOMOR_WA_ULTRA}?text=${encodeURIComponent(waMsg)}`;
 

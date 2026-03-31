@@ -968,9 +968,9 @@
             <div class="wishes-premium">
                 <div class="wish-form-premium">
                     <form onsubmit="sendWishPremium(event)">
-                        <input type="text" class="input-premium" placeholder="Nama Anda" required>
-                        <textarea class="input-premium" placeholder="Tulis ucapan dan doa terbaik untuk kami..." required></textarea>
-                        <button type="submit" class="submit-premium">Kirim Ucapan</button>
+                        <input type="text" class="input-premium" id="premiumName" placeholder="Nama Anda" required>
+                        <textarea class="input-premium" id="premiumMessage" placeholder="Tulis ucapan dan doa terbaik untuk kami..." required></textarea>
+                        <button type="submit" class="submit-premium">💬 Kirim via WhatsApp</button>
                     </form>
                 </div>
 
@@ -1079,10 +1079,34 @@
             });
         }
 
+        // =============================================
+        // KONFIGURASI NOMOR WA PEMILIK UNDANGAN
+        // =============================================
+        const NOMOR_WA_PREMIUM = '6281286511070';
+
         function sendWishPremium(e) {
             e.preventDefault();
-            alert('Terima kasih atas ucapan dan doa yang telah diberikan!');
+            const nama = document.getElementById('premiumName').value.trim();
+            const ucapan = document.getElementById('premiumMessage').value.trim();
+
+            // 1. Tampilkan ucapan di web secara visual
+            const wishItem = document.createElement('div');
+            wishItem.className = 'wish-item';
+            wishItem.style.animation = 'fadeInScale 0.5s ease-out forwards';
+            wishItem.innerHTML = `
+                <div class="wish-author">💌 ${nama}</div>
+                <div class="wish-text">${ucapan}</div>
+                <div class="wish-time">Baru saja</div>
+            `;
+            document.querySelector('.wishes-display').prepend(wishItem);
+
+            // 2. Kirim data ke WA pengantin
+            const pesan = `Assalamu'alaikum! 🌸\n\nSaya *${nama}* ingin menyampaikan ucapan dan doa untuk Alexander & Victoria:\n\n_${ucapan}_\n\nBarakallahu lakuma wa baraka 'alaikuma wa jama'a bainakuma fi khair 💕`;
+            const waURL = `https://wa.me/${NOMOR_WA_PREMIUM}?text=${encodeURIComponent(pesan)}`;
+
+            // 3. Reset form dan lempar ke WA
             e.target.reset();
+            window.open(waURL, '_blank');
         }
 
         // Smooth parallax scrolling effect
