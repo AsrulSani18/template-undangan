@@ -746,7 +746,24 @@
 
         @media (max-width: 768px) {
             .couple-names-hero {
-                font-size: 2.5em;
+                font-size: 2.2em;
+                letter-spacing: 2px;
+            }
+            .elegant-script {
+                font-size: 1.4em;
+            }
+            .date-hero {
+                font-size: 1.1em;
+                letter-spacing: 3px;
+            }
+            .golden-button {
+                padding: 15px 35px;
+                font-size: 0.95em;
+                margin-top: 30px;
+            }
+            .luxury-ornament {
+                width: 200px;
+                height: 200px;
             }
             .luxury-frame {
                 width: 250px;
@@ -755,13 +772,48 @@
             .luxury-photo {
                 font-size: 5em;
             }
+            .premium-title {
+                font-size: 1.8em;
+            }
+            .premium-subtitle {
+                font-size: 0.9em;
+                letter-spacing: 2px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .couple-names-hero {
+                font-size: 1.7em;
+                margin: 15px 0;
+            }
+            .elegant-script {
+                font-size: 1.2em;
+                margin-bottom: 10px;
+            }
+            .date-hero {
+                font-size: 0.95em;
+                letter-spacing: 2px;
+            }
+            .golden-button {
+                padding: 12px 28px;
+                font-size: 0.85em;
+                letter-spacing: 1px;
+                margin-top: 20px;
+            }
+            .luxury-ornament {
+                width: 150px;
+                height: 150px;
+            }
+            .premium-title {
+                font-size: 1.5em;
+            }
         }
     </style>
 </head>
 <body>
     <!-- Audio Musik Pernikahan -->
     <audio id="weddingMusicPrem" loop preload="auto">
-        <source src="https://archive.org/download/canon-in-d-major-for-strings-and-continuo-johann-pachelbel-1653-1706/Canon%20in%20D%20Major%20for%20Strings%20and%20Continuo%20-%20Johann%20Pachelbel%20%281653-1706%29.mp3" type="audio/mpeg">
+        <source src="wedding-music.mp3" type="audio/mpeg">
     </audio>
 
     <!-- Tombol Kontrol Musik Premium -->
@@ -916,7 +968,7 @@
             </div>
             
             <div class="instagram-feed">
-                <div class="insta-post">📷</div>
+                <div class="insta-post"><img src="https://images.unsplash.com/photo-1515825861891-4a75b4e6a092?q=80&w=2070&auto=format&fit=crop" alt=""></div>
                 <div class="insta-post">📷</div>
                 <div class="insta-post">📷</div>
                 <div class="insta-post">📷</div>
@@ -1018,7 +1070,19 @@
                 bgMusicPrem.play().then(() => {
                     musicPlayingPrem = true;
                     updateMusicBtnPrem();
-                }).catch(err => console.log('Autoplay blocked:', err));
+                }).catch(err => {
+                    console.log('Autoplay blocked, waiting for user gesture...');
+                    const playOnInteract = () => {
+                        bgMusicPrem.play().then(() => {
+                            musicPlayingPrem = true;
+                            updateMusicBtnPrem();
+                        }).catch(e => console.log(e));
+                        document.removeEventListener('click', playOnInteract);
+                        document.removeEventListener('touchstart', playOnInteract);
+                    };
+                    document.addEventListener('click', playOnInteract, { once: true });
+                    document.addEventListener('touchstart', playOnInteract, { once: true });
+                });
             }, 800);
         }
 

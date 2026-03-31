@@ -627,6 +627,17 @@
             .cover-names {
                 font-size: 2.5em;
             }
+            .cover-title {
+                font-size: 1.1em;
+                letter-spacing: 4px;
+            }
+            .cover-date {
+                font-size: 1.2em;
+            }
+            .open-envelope {
+                padding: 14px 35px;
+                font-size: 1em;
+            }
             .couple-grid {
                 grid-template-columns: 1fr;
                 gap: 40px;
@@ -648,13 +659,47 @@
             .gallery-masonry {
                 column-count: 2;
             }
+            .section-title {
+                font-size: 2em;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .cover-names {
+                font-size: 1.8em;
+                margin: 15px 0;
+            }
+            .cover-title {
+                font-size: 0.9em;
+                letter-spacing: 3px;
+                margin-bottom: 15px;
+            }
+            .cover-date {
+                font-size: 1em;
+                letter-spacing: 1px;
+            }
+            .open-envelope {
+                padding: 12px 28px;
+                font-size: 0.9em;
+                margin-top: 25px;
+            }
+            .section-title {
+                font-size: 1.6em;
+            }
+            .section-subtitle {
+                font-size: 0.85em;
+                letter-spacing: 2px;
+            }
+            .gallery-masonry {
+                column-count: 1;
+            }
         }
     </style>
 </head>
 <body>
     <!-- Audio Element Wedding Music -->
     <audio id="weddingMusicAdv" loop preload="auto">
-        <source src="https://archive.org/download/canon-in-d-major-for-strings-and-continuo-johann-pachelbel-1653-1706/Canon%20in%20D%20Major%20for%20Strings%20and%20Continuo%20-%20Johann%20Pachelbel%20%281653-1706%29.mp3" type="audio/mpeg">
+        <source src="wedding-music.mp3" type="audio/mpeg">
     </audio>
 
     <!-- Music Control Button -->
@@ -920,11 +965,24 @@
             window.scrollTo(0, 0);
             // Auto-play setelah undangan dibuka
             setTimeout(() => {
-                bgMusicAdv.volume = 0.5;
+                            bgMusicAdv.volume = 0.5;
                 bgMusicAdv.play().then(() => {
                     musicPlayingAdv = true;
                     updateMusicBtnAdv();
-                }).catch(err => console.log('Autoplay blocked:', err));
+                }).catch(err => {
+                    // Kalau autoplay diblokir, pasang listener pada interaksi pertama
+                    console.log('Autoplay blocked, waiting for user gesture...');
+                    const playOnInteract = () => {
+                        bgMusicAdv.play().then(() => {
+                            musicPlayingAdv = true;
+                            updateMusicBtnAdv();
+                        }).catch(e => console.log(e));
+                        document.removeEventListener('click', playOnInteract);
+                        document.removeEventListener('touchstart', playOnInteract);
+                    };
+                    document.addEventListener('click', playOnInteract, { once: true });
+                    document.addEventListener('touchstart', playOnInteract, { once: true });
+                });
             }, 500);
         }
 

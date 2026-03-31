@@ -394,11 +394,55 @@
             .cover .names {
                 font-size: 2.5em;
             }
+            .cover h1 {
+                font-size: 1.1em;
+                letter-spacing: 3px;
+            }
+            .cover .date-cover {
+                font-size: 1.1em;
+            }
+            .open-button {
+                padding: 14px 35px;
+                font-size: 1em;
+            }
             .couple-container {
                 flex-direction: column;
             }
             .divider {
                 transform: rotate(90deg);
+            }
+            .section-title {
+                font-size: 2em;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .cover .names {
+                font-size: 1.9em;
+            }
+            .cover h1 {
+                font-size: 0.9em;
+                letter-spacing: 2px;
+                margin-bottom: 15px;
+            }
+            .cover .date-cover {
+                font-size: 1em;
+                letter-spacing: 1px;
+                margin: 12px 0;
+            }
+            .open-button {
+                padding: 12px 28px;
+                font-size: 0.9em;
+                margin-top: 25px;
+            }
+            .section-title {
+                font-size: 1.6em;
+            }
+            .section {
+                padding: 50px 15px;
+            }
+            .section-title::after {
+                width: 70px;
             }
         }
     </style>
@@ -406,7 +450,7 @@
 <body>
     <!-- Audio Element -->
     <audio id="weddingMusic" loop preload="auto">
-        <source src="https://archive.org/download/canon-in-d-major-for-strings-and-continuo-johann-pachelbel-1653-1706/Canon%20in%20D%20Major%20for%20Strings%20and%20Continuo%20-%20Johann%20Pachelbel%20%281653-1706%29.mp3" type="audio/mpeg">
+        <source src="wedding-music.mp3" type="audio/mpeg">
         <!-- Backup: lagu instrumental romantis -->
     </audio>
 
@@ -576,7 +620,17 @@
                 musicPlaying = true;
                 updateMusicBtn();
             }).catch(err => {
-                console.log('Autoplay blocked:', err);
+                console.log('Autoplay blocked, waiting for user gesture...');
+                const playOnInteract = () => {
+                    bgMusic.play().then(() => {
+                        musicPlaying = true;
+                        updateMusicBtn();
+                    }).catch(e => console.log(e));
+                    document.removeEventListener('click', playOnInteract);
+                    document.removeEventListener('touchstart', playOnInteract);
+                };
+                document.addEventListener('click', playOnInteract, { once: true });
+                document.addEventListener('touchstart', playOnInteract, { once: true });
             });
         }
 

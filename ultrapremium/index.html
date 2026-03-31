@@ -847,12 +847,94 @@
                 transform: scale(1) translateY(0);
             }
         }
+
+        @media (max-width: 768px) {
+            .ultra-names {
+                font-size: 5em;
+            }
+            .ultra-subtitle {
+                font-size: 1.1em;
+                letter-spacing: 5px;
+            }
+            .ultra-date {
+                font-size: 1.3em;
+                letter-spacing: 4px;
+            }
+            .diamond-btn {
+                padding: 18px 45px;
+                font-size: 1em;
+                margin-top: 30px;
+            }
+            .couple-ultra-grid {
+                grid-template-columns: 1fr;
+                gap: 60px;
+            }
+            .center-diamond { transform: rotate(90deg); }
+            .timeline-ultra::before { left: 30px; }
+            .event-ultra-content {
+                width: calc(100% - 80px);
+                margin-left: 80px !important;
+            }
+            .timeline-diamond { left: 30px; }
+            .gallery-ultra {
+                grid-template-columns: repeat(2, 1fr);
+            }
+            .ultra-title {
+                font-size: 2em;
+            }
+            .ultra-label {
+                font-size: 0.85em;
+                letter-spacing: 3px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .ultra-names {
+                font-size: 3.5em;
+                margin: 10px 0;
+            }
+            .ultra-subtitle {
+                font-size: 0.85em;
+                letter-spacing: 3px;
+                margin-bottom: 15px;
+            }
+            .ultra-date {
+                font-size: 1em;
+                letter-spacing: 2px;
+                margin: 15px 0;
+            }
+            .diamond-btn {
+                padding: 14px 32px;
+                font-size: 0.85em;
+                letter-spacing: 2px;
+                margin-top: 20px;
+            }
+            .ultra-photo-frame {
+                width: 220px;
+                height: 220px;
+            }
+            .ultra-photo { font-size: 5em; }
+            .gallery-ultra {
+                grid-template-columns: 1fr;
+            }
+            .gallery-ultra-item:nth-child(1),
+            .gallery-ultra-item:nth-child(5) {
+                grid-column: span 1;
+            }
+            .ultra-title {
+                font-size: 1.6em;
+            }
+            .ultra-label {
+                letter-spacing: 2px;
+                font-size: 0.8em;
+            }
+        }
     </style>
 </head>
 <body>
     <!-- Audio Musik Pernikahan Ultra Premium -->
     <audio id="weddingMusicUltra" loop preload="auto">
-        <source src="https://archive.org/download/canon-in-d-major-for-strings-and-continuo-johann-pachelbel-1653-1706/Canon%20in%20D%20Major%20for%20Strings%20and%20Continuo%20-%20Johann%20Pachelbel%20%281653-1706%29.mp3" type="audio/mpeg">
+        <source src="wedding-music.mp3" type="audio/mpeg">
     </audio>
 
     <div class="preloader" id="preloader">
@@ -1130,7 +1212,19 @@
                 bgMusicUltra.play().then(() => {
                     musicPlayingUltra = true;
                     updateMusicBtnUltra();
-                }).catch(err => console.log('Autoplay blocked:', err));
+                }).catch(err => {
+                    console.log('Autoplay blocked, waiting for user gesture...');
+                    const playOnInteract = () => {
+                        bgMusicUltra.play().then(() => {
+                            musicPlayingUltra = true;
+                            updateMusicBtnUltra();
+                        }).catch(e => console.log(e));
+                        document.removeEventListener('click', playOnInteract);
+                        document.removeEventListener('touchstart', playOnInteract);
+                    };
+                    document.addEventListener('click', playOnInteract, { once: true });
+                    document.addEventListener('touchstart', playOnInteract, { once: true });
+                });
             }, 1000);
         }
 
